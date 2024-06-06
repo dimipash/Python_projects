@@ -1,3 +1,26 @@
+"""
+A Student Management System application with a graphical user interface (GUI) built using Tkinter.
+
+This application allows users to manage student records in a PostgreSQL database. It provides an intuitive GUI with various functionalities such as creating a table, inserting new student data, updating existing data, deleting records, and displaying all student records in a treeview.
+
+Features:
+- Create a table in the PostgreSQL database for storing student data
+- Insert new student records with name, address, age, and phone number
+- Update existing student records by selecting a record from the treeview
+- Delete student records by selecting a record from the treeview
+- Display all student records in a treeview with scrolling functionality
+- User-friendly interface with input fields and buttons for CRUD operations
+- Error handling and messaging for database operations
+
+Requirements:
+- Python
+- Tkinter (Python's standard GUI library)
+- psycopg2 (PostgreSQL database adapter for Python)
+- A running instance of PostgreSQL database server
+
+Note: This application requires the 'psycopg2' library to be installed for interacting with the PostgreSQL database.
+"""
+
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
