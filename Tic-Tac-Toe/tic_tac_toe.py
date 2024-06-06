@@ -1,5 +1,22 @@
-# Tic-Tac-Toe Program using
-# random number in Python
+"""
+A command-line implementation of the classic Tic-Tac-Toe game using random moves.
+
+This script simulates a Tic-Tac-Toe game where two players (represented by 1 and 2) take turns making random moves on a 3x3 board. The game continues until one player wins by getting three of their marks (1 or 2) in a row, column, or diagonal, or until the game ends in a tie.
+
+Features:
+- Generates an empty 3x3 board
+- Randomly places moves for players 1 and 2
+- Checks for winning conditions (row, column, diagonal) after each move
+- Detects a tie if the board is full and no winner is found
+- Displays the board after each move
+- Announces the winner or a tie at the end of the game
+
+Requirements:
+- Python 3.x
+- NumPy library
+
+Note: This script requires the NumPy library to be installed for array manipulation.
+"""
 
 # importing all necessary libraries
 import numpy as np

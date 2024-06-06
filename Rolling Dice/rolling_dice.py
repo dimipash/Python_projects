@@ -1,3 +1,20 @@
+"""
+A simple command-line dice game implementation.
+
+This script simulates a dice game where the user can roll a virtual dice and continue playing as long as they wish. The program generates a random number between 1 and 6, representing the outcome of a dice roll.
+
+Features:
+- Random dice roll simulation
+- Prompts the user to play again after each roll
+- Input validation for the user's choice (Yes/No)
+- Continuous gameplay until the user chooses to exit
+
+Requirements:
+- Python 3.x
+
+Note: This script does not require any external libraries or dependencies.
+"""
+
 import random
 
 

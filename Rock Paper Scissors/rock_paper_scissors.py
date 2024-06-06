@@ -1,3 +1,21 @@
+"""
+A simple command-line implementation of the classic Rock-Paper-Scissors game.
+
+This script allows the user to play the Rock-Paper-Scissors game against the computer. The user is prompted to choose one of the three options: Rock, Paper, or Scissors. The computer randomly selects its choice, and the game determines the winner based on the classic rules of the game.
+
+Features:
+- User-friendly prompts for input validation
+- Random choice selection for the computer opponent
+- Game outcome determination based on the rules of Rock-Paper-Scissors
+- Option to play again after each round
+- Supports both Windows and Unix-based systems for clearing the console
+
+Requirements:
+- Python 3.x
+
+Note: This script does not require any external libraries or dependencies.
+"""
+
 import random
 import os
 import re

@@ -1,3 +1,23 @@
+"""
+A simple music player application with a graphical user interface (GUI) built using Tkinter and Pygame.
+
+This application allows users to browse and select music files (MP3 format) from their local file system, play, pause, stop, and adjust the volume of the selected music track. It provides a user-friendly interface with various buttons for controlling the music playback and a listbox to display the available music files.
+
+Features:
+- Browse and add music files (MP3) to the playlist
+- Play, pause, stop, and adjust the volume of the selected music track
+- Animated GIF displayed in the main window
+- Customizable buttons for music playback controls
+- Listbox to display the available music files in the playlist
+
+Requirements:
+- Python
+- Tkinter (Python's standard GUI library)
+- Pygame (Python library for multimedia applications)
+
+Note: This application requires the 'pygame' library to be installed for audio playback functionality.
+"""
+
 import os
 from tkinter import Tk, PhotoImage, Label, Button, Frame, Listbox, Scrollbar, filedialog
 from pygame import mixer

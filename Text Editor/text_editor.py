@@ -1,3 +1,22 @@
+"""
+A simple text editor application with a graphical user interface (GUI) built using Tkinter.
+
+This application allows users to open and edit text files, as well as save the edited content to a new file location. It provides a user-friendly interface with buttons for opening and saving files, and a text area for editing the file content.
+
+Features:
+- Open existing text files
+- Edit the content of the opened file
+- Save the edited content to a new file location
+- File dialog for selecting files to open or save
+- Customizable file extensions for opening and saving files
+
+Requirements:
+- Python
+- Tkinter (Python's standard GUI library)
+
+Note: This application does not require any external libraries or dependencies beyond the standard Python distribution.
+"""
+
 import tkinter as tk
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 

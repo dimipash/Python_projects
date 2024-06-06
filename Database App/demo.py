@@ -1,3 +1,19 @@
+"""
+A simple PostgreSQL-based student database management system.
+
+This application allows you to perform CRUD operations (Create, Read, Update, Delete) on a PostgreSQL database containing student records.
+
+Features:
+- Create a new table for storing student data
+- Insert new student records
+- Read and display existing student records
+- Update student records by ID
+- Delete student records by ID
+- Menu-driven interface for easy navigation
+
+Note: This application requires a PostgreSQL database server running locally and the 'psycopg2' Python library installed.
+"""
+
 import psycopg2
 
 def create_table():
