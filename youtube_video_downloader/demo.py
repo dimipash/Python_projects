@@ -1,11 +1,20 @@
 from tkinter import *
 from tkinter import filedialog
+from pytube import YouTube
+from moviepy.editor import *
 
 
 
 def get_path():
     path = filedialog.askdirectory()
     path_label.config(text=path)
+
+def download():
+    video_path = url_entry.get()
+    file_path = path_label.cget("text")
+    mp4 = YouTube(video_path).streams.get_highest_resolution().download()
+    video_clip = VideoFileClip(mp4)
+    video_clip.close()
 
 root = Tk()
 root.title('Video Downloader')
@@ -28,7 +37,7 @@ path_button = Button(root, text="Select", command=get_path)
 canvas.create_window(200, 150, window=path_label)
 canvas.create_window(200, 170, window=path_button)
 
-download_button = Button(root, text="Download")
+download_button = Button(root, text="Download", command=download)
 canvas.create_window(200, 250, window=download_button)
 
 root.mainloop()
