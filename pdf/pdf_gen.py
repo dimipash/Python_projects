@@ -15,7 +15,11 @@ class PDF(FPDF):
 
 
     def footer(self):
-        pass
+        self.set_y(-15)
+        self.set_font("helvetica", "B", 15)
+        self.set_text_color(128)
+        self.cell(0, 10, f"Page {self.page_no()}", align="C")
+
 
     def chapter_title(self, num, label):
         self.set_font("helvetica", "", 12)
@@ -42,4 +46,4 @@ pdf.set_title("100 Ways to learn programming")
 pdf.set_author("Dimitar Pashev")
 pdf.print_chapter(1, "GETTING STARTED WITH PROGRAMMING", "para.txt")
 pdf.print_chapter(2, "WHICH PROGRAMMING LANGUAGE TO LEARN", "para.txt")
-pdf.output("sample22.pdf")
+pdf.output("sample23.pdf")
