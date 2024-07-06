@@ -1,3 +1,18 @@
+"""
+Custom PDF Generator with Header and Footer
+
+This script creates a PDF document using a custom FPDF class with the following features:
+- Custom header with logo and title
+- Custom footer with page numbers
+- Generates 40 lines of sample text
+
+Requirements:
+- fpdf library
+- logo.png file in the same directory
+
+Output: sample.pdf
+"""
+
 from fpdf import FPDF
 
 class PDF(FPDF):

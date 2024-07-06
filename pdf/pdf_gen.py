@@ -1,3 +1,19 @@
+"""
+Advanced PDF Generator with Chapters
+
+This script creates a PDF document using a custom FPDF class with the following features:
+- Custom header with centered, colored title
+- Custom footer with page numbers
+- Chapter formatting with titles and body text from external files
+- Metadata (title and author) setting
+
+Requirements:
+- fpdf library
+- para.txt file(s) in the same directory for chapter content
+
+Output: sample23.pdf
+"""
+
 from fpdf import FPDF
 
 
