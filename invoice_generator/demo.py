@@ -1,4 +1,5 @@
 from tkinter import *
+from fpdf import FPDF
 
 window = Tk()
 window.title("Invoice Generator")
@@ -34,6 +35,45 @@ def update_invoice_text():
         )
 
 
+def generate_invoice():
+    customer_name = customer_entry.get()
+
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Helvetica", size=16)
+    pdf.cell(0, 10, text="Invoice", new_x="LMARGIN", new_y="NEXT", align="C")
+    pdf.cell(
+        0,
+        10,
+        text="Customer: " + customer_name,
+        new_x="LMARGIN",
+        new_y="NEXT",
+        align="L",
+    )
+    pdf.cell(0, 10, text="", new_x="LMARGIN", new_y="NEXT")
+
+    for item in invoice_items:
+        medicine_name, quantity, item_total = item
+        pdf.cell(
+            0,
+            10,
+            text=f"Medicine: {medicine_name}, Quantity: {quantity}, Total: {item_total}",
+            new_x="LMARGIN",
+            new_y="NEXT",
+            align="L",
+        )
+    pdf.cell(
+        0,
+        10,
+        text="Total Amount: " + str(calculate_total()),
+        new_x="LMARGIN",
+        new_y="NEXT",
+        align="L",
+    )
+
+    pdf.output("invoice.pdf")
+
+
 medicine_label = Label(window, text="Medicine:")
 medicine_label.pack()
 
@@ -62,10 +102,10 @@ customer_label.pack()
 customer_entry = Entry(window)
 customer_entry.pack()
 
-generate_button = Button(window, text="Generate Invoice")
+generate_button = Button(window, text="Generate Invoice", command=generate_invoice)
 generate_button.pack()
 
-invoice_text = Text(window, width=40, height=40)
+invoice_text = Text(window, width=60, height=40)
 invoice_text.pack()
 
 window.mainloop()
