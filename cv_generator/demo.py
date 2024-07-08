@@ -1,4 +1,6 @@
 from tkinter import *
+import pyqrcode 
+from fpdf import FPDF
 
 def generate_cv_pdf():
     name = entry_name.get()
