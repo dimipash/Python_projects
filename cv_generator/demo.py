@@ -3,6 +3,63 @@ import pyqrcode
 from fpdf import FPDF
 from tkinter import messagebox
 
+class PDFCV(FPDF):
+    def header(self):
+        self.image("mywebsite.png", 10, 8, 33, title="Portfolio Site")
+    
+    def footer(self):
+        pass
+
+    def generate_cv(self, name, email, phone_number, address,skills, education, work_experience, about_me):
+        self.add_page()
+        self.ln(20)
+
+        self.set_font("Arial", "B", 26)
+        self.cell(0, 10, name, new_x="LMARGIN", new_y="NEXT", align="C")
+
+        self.set_font("Arial", "B", 12)
+        self.cell(0, 10, "Contact Information", new_x="LMARGIN", new_y="NEXT", align="L")
+
+        self.set_font("Arial", "", 10)
+        self.cell(0, 5, "Email: {}".format(email), new_x="LMARGIN", new_y="NEXT")
+        self.cell(0, 5, "Phone: {}".format(phone_number), new_x="LMARGIN", new_y="NEXT")
+        self.cell(0, 5, "Address: {}".format(address), new_x="LMARGIN", new_y="NEXT")
+
+        self.ln(10)
+        self.set_font("Arial", "B", 12)
+        self.cell(0, 10, "Skills", new_x="LMARGIN", new_y="NEXT", align="L")
+
+        self.set_font("Arial", "", 10)
+        for skill in skills:
+            self.cell(0, 5, "- {}".format(skill), new_x="LMARGIN", new_y="NEXT")
+      
+        self.ln(10)
+        self.set_font("Arial", "B", 12)
+        self.cell(0, 10, "Work Experience", new_x="LMARGIN", new_y="NEXT", align="L")
+
+        self.set_font("Arial", "", 10)
+        for experience in work_experience:
+            self.cell(0, 5, "{}: {}".format(experience["title"], experience["description"]), new_x="LMARGIN", new_y="NEXT")
+
+        self.ln(10)
+        self.set_font("Arial", "B", 12)
+        self.cell(0, 10, "Education", new_x="LMARGIN", new_y="NEXT", align="L")
+
+        self.set_font("Arial", "", 10)
+        for education_item in education:
+            self.cell(0, 5, "{}: {}".format(education_item["degree"], education_item["university"]), new_x="LMARGIN", new_y="NEXT")
+
+        self.ln(10)
+        self.set_font("Arial", "B", 12)
+        self.cell(0, 10, "About Me", new_x="LMARGIN", new_y="NEXT", align="L")
+
+        self.set_font("Helvetica", "", 10)
+        self.multi_cell(0, 5, about_me)
+
+
+        self.output("cv.pdf")
+
+
 def generate_cv_pdf():
     name = entry_name.get()
     email = entry_email.get()
@@ -31,7 +88,9 @@ def generate_cv_pdf():
     if not all([name, email, phone_number, address, skills, education, work_experience, about_me]):
         messagebox.showerror("Error", "Please fill in all the details")
         return
-
+    
+    cv = PDFCV()
+    cv.generate_cv(name, email, phone_number, address,skills, education, work_experience, about_me)
 
 window = Tk()
 window.title("CV Generator")
