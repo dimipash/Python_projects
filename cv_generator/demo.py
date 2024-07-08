@@ -1,7 +1,29 @@
 from tkinter import *
 
+def generate_cv_pdf():
+    name = entry_name.get()
+    email = entry_email.get()
+    phone_number = entry_phone.get()
+    address = entry_address.get()
+    website = entry_website.get()
+    skills = entry_skills.get("1.0", END).strip().split('\n')
+    work_experience = []
+    education= []
+
+    work_experience_lines = entry_experience.get("1.0", END).strip().split('\n')
+    for line in  work_experience_lines:
+        title, description = line.split(":")
+        work_experience.append({'title': title.strip(), 'description': description.strip()})
+
+    education_lines = entry_education.get("1.0", END).strip().split('\n')
+    for line in education_lines:
+        degree, university = line.split(":")
+        education.append({'degree': degree.strip(), 'university': university.strip()})
+
+    about_me = entry_about_me.get("1.0", END)
+
 window = Tk()
-window.title("CV Genertaor")
+window.title("CV Generator")
 
 label_name = Label(window, text="Name: ")
 label_name.pack()
@@ -42,17 +64,17 @@ label_education.pack()
 entry_education = Text(window, height = 5)
 entry_education.pack()
 
-label_about_me = Label(window, text="About Me")
-label_about_me.pack()
-entry_about_me = Text(window, height = 5)
-entry_about_me.pack()
-
 label_experience = Label(window, text="Experience(Enter one per line in format 'Job Title': 'Description')")
 label_experience.pack()
 entry_experience = Text(window, height = 5)
 entry_experience.pack()
 
-button_generate = Button(window, text="Generate CV")
+label_about_me = Label(window, text="About Me")
+label_about_me.pack()
+entry_about_me = Text(window, height = 5)
+entry_about_me.pack()
+
+button_generate = Button(window, text="Generate CV", command=generate_cv_pdf)
 button_generate.pack()
 
 
