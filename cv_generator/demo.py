@@ -1,6 +1,7 @@
 from tkinter import *
 import pyqrcode 
 from fpdf import FPDF
+from tkinter import messagebox
 
 def generate_cv_pdf():
     name = entry_name.get()
@@ -23,6 +24,14 @@ def generate_cv_pdf():
         education.append({'degree': degree.strip(), 'university': university.strip()})
 
     about_me = entry_about_me.get("1.0", END)
+
+    qrcode = pyqrcode.create(website)
+    qrcode.png("mywebsite.png", scale=6)
+
+    if not all([name, email, phone_number, address, skills, education, work_experience, about_me]):
+        messagebox.showerror("Error", "Please fill in all the details")
+        return
+
 
 window = Tk()
 window.title("CV Generator")
