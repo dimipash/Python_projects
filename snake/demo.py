@@ -1,5 +1,6 @@
 import pygame
 import random
+
 pygame.init()
 
 window_width = 800
@@ -25,14 +26,14 @@ length_of_snake = 1
 
 food_x = round(random.randrange(0, window_width - 10) / 10) * 10.0
 food_y = round(random.randrange(0, window_height - 10) / 10) * 10.0
- 
+
 clock = pygame.time.Clock()
 
 while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             game_over = True
-        
+
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 x1_change = -10
@@ -63,16 +64,23 @@ while not game_over:
     if len(snake_body) > length_of_snake:
         del snake_body[0]
 
+    for segment in snake_body[:-1]:
+        if segment == snake_head:
+            game_over = True
+
+    font_style = pygame.font.SysFont(None, 50)
+    score_text = font_style.render("Score: " + str(score), True, white)
+    window.blit(score_text, (10, 10))
+
     if x1 == food_x and y1 == food_y:
         food_x = round(random.randrange(0, window_width - 10) / 10) * 10.0
         food_y = round(random.randrange(0, window_height - 10) / 10) * 10.0
         length_of_snake += 1
         score += 1
 
-
-    pygame.draw.rect(window, red, [food_x, food_y, 10, 10])    
-    # pygame.draw.rect(window, white, [x1, y1, 10, 10])   
+    pygame.draw.rect(window, red, [food_x, food_y, 10, 10])
+    # pygame.draw.rect(window, white, [x1, y1, 10, 10])
     for segment in snake_body:
-         pygame.draw.rect(window, white, [segment[0], segment[1], 10, 10]) 
+        pygame.draw.rect(window, white, [segment[0], segment[1], 10, 10])
     pygame.display.update()
     clock.tick(30)
