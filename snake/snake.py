@@ -1,3 +1,11 @@
+"""
+Snake Game: A classic arcade-style game implemented with Pygame.
+
+This game features a snake that grows longer as it eats food, with the objective
+to avoid colliding with the walls or its own body. The player controls the snake's
+direction using arrow keys, aiming to achieve the highest possible score.
+"""
+
 import pygame
 import random
 

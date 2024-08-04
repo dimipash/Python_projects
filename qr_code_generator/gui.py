@@ -1,8 +1,16 @@
+"""
+QR Code Generator: A simple GUI application for generating QR codes from links.
+
+This application allows users to input a link name and URL, then generates
+and displays a QR code based on the provided information.
+"""
+
 from tkinter import *
 import pyqrcode
 from PIL import ImageTk, Image
 
 root = Tk()
+
 
 def generate():
     link_name = name_entry.get()
@@ -16,17 +24,16 @@ def generate():
     canvas.create_window(200, 250, window=image_label)
 
 
-
 canvas = Canvas(root, width=400, height=600)
 canvas.pack()
 
-app_label = Label(root,text="QR Code Generator", fg="blue",font=("Arial", 30))
+app_label = Label(root, text="QR Code Generator", fg="blue", font=("Arial", 30))
 
 canvas.create_window(200, 50, window=app_label)
 
-name_label = Label(root,text="Link name")
+name_label = Label(root, text="Link name")
 
-link_label = Label(root,text="Link")
+link_label = Label(root, text="Link")
 
 canvas.create_window(200, 100, window=name_label)
 canvas.create_window(200, 160, window=link_label)

@@ -1,7 +1,19 @@
+"""
+Tkinter GUI demonstrating frame usage.
+
+Creates a window with two frames:
+1. A main frame with a border and padding, containing 'Button1'.
+2. A bottom frame containing 'Button2'.
+
+Illustrates basic frame creation, customization, and positioning.
+"""
+
 from tkinter import *
 
 root = Tk()
-frame = Frame(root, highlightthickness=1, highlightbackground="black", padx="20", pady="20")
+frame = Frame(
+    root, highlightthickness=1, highlightbackground="black", padx="20", pady="20"
+)
 frame.pack()
 
 frame2 = Frame(root)

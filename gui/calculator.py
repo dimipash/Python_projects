@@ -1,3 +1,11 @@
+"""
+Advanced GUI calculator with scientific functions.
+
+Creates a Tkinter window with a display and buttons for numbers, basic arithmetic
+operations, and scientific functions. Supports undo and clear operations.
+Uses ast module for safe evaluation of mathematical expressions.
+"""
+
 from tkinter import *
 import ast
 
@@ -27,7 +35,7 @@ def calculate():
     entire_string = display.get()
     try:
         node = ast.parse(entire_string, mode="eval")
-        result = eval(compile(node, '<string>', 'eval'))
+        result = eval(compile(node, "<string>", "eval"))
         clear_all()
         display.insert(0, result)
     except Exception:
@@ -55,7 +63,13 @@ counter = 0
 for x in range(3):
     for y in range(3):
         button_text = numbers[counter]
-        button = Button(root, text=button_text, width=4, height=2, command=lambda text=button_text: get_number(text))
+        button = Button(
+            root,
+            text=button_text,
+            width=4,
+            height=2,
+            command=lambda text=button_text: get_number(text),
+        )
         button.grid(row=x + 2, column=y)
         counter += 1
 
@@ -67,8 +81,13 @@ operations = ["+", "-", "*", "/", "*3.14", "%", "(", "**", ")", "**2"]
 for x in range(4):
     for y in range(3):
         if count < len(operations):
-            button = Button(root, text=operations[count], width=4, height=2,
-                            command=lambda text=operations[count]: get_operation(text))
+            button = Button(
+                root,
+                text=operations[count],
+                width=4,
+                height=2,
+                command=lambda text=operations[count]: get_operation(text),
+            )
             count += 1
             button.grid(row=x + 2, column=y + 3)
 

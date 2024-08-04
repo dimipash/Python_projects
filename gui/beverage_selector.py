@@ -1,3 +1,10 @@
+"""
+Drink customization GUI using checkboxes.
+
+Creates a Tkinter window with checkboxes for sugar, ice, and cream options.
+Displays the selected options in real-time as the user toggles the checkboxes.
+"""
+
 from tkinter import *
 
 
@@ -20,7 +27,9 @@ def selected():
     else:
         cream = "No Cream"
 
-    label.config(text="Options selected are: " + "\n" + sugar + "\n" + ice + "\n" + cream)
+    label.config(
+        text="Options selected are: " + "\n" + sugar + "\n" + ice + "\n" + cream
+    )
 
 
 root = Tk()

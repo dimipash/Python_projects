@@ -1,4 +1,13 @@
+"""
+Tkinter GUI demonstrating a 3x3 grid of buttons.
+
+Creates a window with a 3x3 grid of frames, each containing a button.
+Each button displays its row and column position.
+Illustrates nested loops for GUI element creation and grid layout usage.
+"""
+
 from tkinter import *
+
 root = Tk()
 
 for x in range(3):

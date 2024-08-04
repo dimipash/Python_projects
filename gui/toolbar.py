@@ -2,6 +2,7 @@ from tkinter import *
 
 
 def function1():
+    """Placeholder function for menu item and button clicks."""
     print("Menu Item Clicked")
 
 
@@ -18,7 +19,7 @@ submenu.add_command(label="Save", command=function1)
 status = Label(root, text="This is the current status", bd=1, relief=SUNKEN, anchor=W)
 status.pack(side=BOTTOM, fill=X)
 
-toolbar = Frame(root, bg='green')
+toolbar = Frame(root, bg="green")
 insertbutton = Button(toolbar, text="Insert Files", command=function1)
 deletebutton = Button(toolbar, text="Delete Files", command=function1)
 

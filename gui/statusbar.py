@@ -1,3 +1,14 @@
+"""
+Tkinter GUI with menu bar and status bar.
+
+Creates a window with:
+1. A menu bar containing a 'File' menu with 'Project' and 'Save' options.
+2. A status bar at the bottom of the window.
+
+The menu options trigger a simple print statement when selected.
+Demonstrates basic menu creation and status bar implementation.
+"""
+
 from tkinter import *
 
 

@@ -1,3 +1,11 @@
+"""
+Basic Tkinter GUI with a menu bar.
+
+Creates a window with a menu bar containing a 'File' menu.
+The 'File' menu includes 'Project' and 'Save' options, both
+of which trigger a simple print statement when selected.
+"""
+
 from tkinter import *
 
 

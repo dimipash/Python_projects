@@ -1,3 +1,10 @@
+"""
+Invoice Generator: A simple GUI application for generating medicine invoices.
+
+This application allows users to select medicines, specify quantities,
+and generate PDF invoices for customers.
+"""
+
 from tkinter import *
 from fpdf import FPDF
 

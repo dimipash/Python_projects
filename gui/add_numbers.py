@@ -1,3 +1,11 @@
+"""
+Simple GUI calculator for addition.
+
+Creates a Tkinter window with two input fields, an 'Add' button,
+and a label to display the result. Adds two integer inputs when
+the button is clicked.
+"""
+
 from tkinter import *
 
 

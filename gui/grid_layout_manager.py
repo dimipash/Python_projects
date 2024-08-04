@@ -1,3 +1,14 @@
+"""
+Simple login form GUI using Tkinter.
+
+Creates a window with a basic login form layout:
+- Email label and input field
+- Password label and input field
+- Login button
+
+Uses grid layout for organizing the elements.
+"""
+
 from tkinter import *
 
 root = Tk()
@@ -13,11 +24,10 @@ text1.grid(row=0, column=1)
 label2.grid(row=1, column=0)
 text2.grid(row=1, column=1)
 
-button = Button(root, text='Login')
+button = Button(root, text="Login")
 button.grid(column=1, row=2)
 
 root.geometry("300x300")
-
 
 
 root.mainloop()

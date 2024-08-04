@@ -1,0 +1,1 @@
+![Student Database Management System](https://github.com/dimipash/Python_projects/blob/main/database_app/screenshot.jpg)

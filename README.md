@@ -1,35 +1,88 @@
-# Text Editor
+# My Python Projects Collection
 
-This is a simple text editor built with Python and the Tkinter library. It allows you to create, open, edit, and save text files.
+This repository contains various Python projects, each in its own directory. Below is an overview of the projects included.
 
-## Features
+## Projects
 
-- **Open File**: You can open existing text files to view and edit their content.
-- **Save File**: You can save your work to a text file.
+### [Python Alarm Clock](https://github.com/dimipash/Python_projects/tree/main/alarm_clock)
 
-## How to Use
+A simple alarm clock application built with Python and Tkinter.
 
-1. Run the script in your Python environment.
-2. Use the 'Open' button to open an existing file.
-3. Use the 'Save As...' button to save your work to a file.
+### [Calculator](https://github.com/dimipash/Python_projects/tree/main/calculator)
 
-This text editor is a great starting point for those learning GUI development with Tkinter and Python.
+A sleek, modern calculator application built with Python and CustomTkinter.
 
-# Rock, Paper, Scissors Game
+### [Compressing files](https://github.com/dimipash/Python_projects/tree/main/compressing_files)
+
+A simple GUI application for compressing and decompressing files using a custom compression algorithm.
+
+### [Credit Card Validator](https://github.com/dimipash/Python_projects/tree/main/credit_card_validator)
+
+A simple GUI application for compressing and decompressing files using a custom compression algorithm.
+
+### [Working with CSV files](https://github.com/dimipash/Python_projects/tree/main/csv)
+
+Working with CSV files
+
+### [CV Generator](https://github.com/dimipash/Python_projects/tree/main/cv_generator)
+
+A simple Python application that generates a professional CV in PDF format.
+
+### [GUI apps](https://github.com/dimipash/Python_projects/tree/main/gui)
+
+Various graphical user interface apps.
+
+### [Invoice Generator](https://github.com/dimipash/Python_projects/tree/main/invoice_generator)
+
+Invoice Generator: A simple GUI application for generating medicine invoices.
+
+### [MP3 Player](https://github.com/dimipash/Python_projects/tree/main/mp3_player)
+
+A simple music player application with a graphical user interface (GUI) built using Tkinter and Pygame.
+
+### [Password Hashing](https://github.com/dimipash/Python_projects/tree/main/password_hashing)
+
+Password Hashing and Validation GUI with Bcrypt.
+
+### [PDF Generator](https://github.com/dimipash/Python_projects/tree/main/pdf)
+
+PDF Generator with Links and HTML, Custom PDF Generator with Header and Footer, Advanced PDF Generator with Chapters, CSV to PDF Table Generator.
+
+### [QR Code Generator](https://github.com/dimipash/Python_projects/tree/main/qr_code_generator)
+
+QR Code Generator: A simple GUI application for generating QR codes from links.
+
+### [Rock, Paper, Scissors Game](https://github.com/dimipash/Python_projects/tree/main/rock_paper_scissors)
 
 This is a simple command-line game of Rock, Paper, Scissors built with Python. It allows you to play the classic game against the computer.
 
-## Features
+### [Rolling Dice](https://github.com/dimipash/Python_projects/tree/main/rolling_dice)
 
-- **Play Game**: You can play a game of Rock, Paper, Scissors against the computer.
-- **Replay Option**: After each game, you can choose to play again or exit the game.
+A simple command-line dice game implementation.
 
-## How to Use
+### [Snake Game](https://github.com/dimipash/Python_projects/tree/main/snake)
 
-1. Run the script in your Python environment.
-2. Choose your weapon - Rock, Paper, or Scissors.
-3. The computer chooses its weapon randomly.
-4. The winner is decided based on the rules of Rock, Paper, Scissors.
-5. After the game, choose whether to play again or exit.
+Snake Game: A classic arcade-style game implemented with Pygame.
 
-Enjoy the game!
+### [Text Editor](https://github.com/dimipash/Python_projects/tree/main/text_editor)
+
+This is a simple text editor built with Python and the Tkinter library. It allows you to create, open, edit, and save text files.
+
+### [Text-to-Speech](https://github.com/dimipash/Python_projects/tree/main/text_to_speech)
+
+Text-to-Speech Converter: A simple GUI application that converts text to speech.
+
+### [Tic-Tac-Toe](https://github.com/dimipash/Python_projects/tree/main/tic_tac_toe)
+
+A command-line implementation of the classic Tic-Tac-Toe game using random moves.
+
+### [YouTube Video Downloader](https://github.com/dimipash/Python_projects/tree/main/youtube_video_downloader)
+
+YouTube Video Downloader: A GUI application for downloading YouTube videos and extracting audio.
+
+
+
+
+
+
+
