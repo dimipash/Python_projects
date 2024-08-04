@@ -1,6 +1,6 @@
 # My Python Projects Collection
 
-This repository contains various Python projects, each in its own directory. Below is an overview of the projects included.
+This repository contains various Python projects, each in its own directory.
 
 ## Projects
 
