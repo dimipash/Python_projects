@@ -1,0 +1,11 @@
+Date, Details, Amount, Currency, Transaction Type, Status
+06-Apr-2024, Electricity, 20, USD, Debit, AUTHORIZED
+06-Apr-2024, Online Shopping, 50, USD, Debit, SETTLED
+07-Apr-2024, Grocery Shopping, 35.72, USD, Debit, AUTHORIZED
+08-Apr-2024, Online Purchase, 87.99, USD, Debit, SETTLED
+09-Apr-2024, Dining Out, 42.50, USD, Debit, AUTHORIZED
+10-Apr-2024, Gas Refill, 25.30, USD, Debit, SETTLED
+11-Apr-2024, Subscription Renewal, 9.99, USD, Debit, AUTHORIZED
+12-Apr-2024, Clothing Purchase, 68.42, USD, Debit, SETTLED
+13-Apr-2024, Utility Bill, 79.25, USD, Debit, AUTHORIZED
+14-Apr-2024, Home Improvement, 145.60, USD, Debit, SETTLED
