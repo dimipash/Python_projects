@@ -1,31 +1,47 @@
-import os
+import threading
+from queue import Queue
+from spider import Spider
+from domain import *
+from demo import *
+
+PROJECT_NAME = "thesite"
+HOMEPAGE = "https://en.wikipedia.org/wiki/Python_(programming_language)"
+DOMAIN_NAME = get_domain_name(HOMEPAGE)
+QUEUE_FILE = PROJECT_NAME + "/queue.txt"
+CRAWLED_FILE = PROJECT_NAME + "/crawled.txt"
+NUMBER_OF_THREADS = 8
+queue = Queue()
+Spider(PROJECT_NAME, HOMEPAGE, DOMAIN_NAME)
 
 
-def create_project_dir(directory):
-    if not os.path.exists(directory):
-        print(f"Creating the directory {directory}")
-        os.makedirs(directory)
+def crawl():
+    queued_links = file_to_set(QUEUE_FILE)
+    if len(queued_links) > 0:
+        print(str(len(queued_links)) + " Links in the queue ")
+        create_jobs()
 
 
-def create_data_files(project_name, base_url):
-    queue = os.path.join(project_name, "queue.txt")
-    crawled = os.path.join(project_name, "crawled.txt")
-    if not os.path.isfile(queue):
-        write_file(queue, base_url)
-    if not os.path.isfile(crawled):
-        write_file(crawled, "")
+def create_jobs():
+    for link in file_to_set(QUEUE_FILE):
+        queue.put(link)
+        queue.join()
+        crawl()
 
 
-def write_file(path, data):
-    with open(path, "w") as f:
-        f.write(data)
+def create_workers():
+    for _ in range(NUMBER_OF_THREADS):
+        t = threading.Thread(target=work)
+        t.daemon = True
+        t.start()
 
 
-def append_to_file(path, data):
-    with open(path, "a") as f:
-        f.write(data, "\n")
+def work():
+    while True:
+        url = queue.get()
+        Spider.crawl_page(threading.current_thread().name, url)
+        queue.task_done()
 
 
-def delete_file_contents(path):
-    with open(path, "w").close()
-        
+create_workers()
+
+crawl()
