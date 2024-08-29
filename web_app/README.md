@@ -1,7 +1,7 @@
-![Drag & Drop](https://github.com/dimipash/Python_projects/tree/main/web_app/screenshots/Screenshot1.png)
-![Data Preview](https://github.com/dimipash/Python_projects/tree/main/web_app/screenshots/Screenshot2.png)
-![Data Summary](https://github.com/dimipash/Python_projects/tree/main/web_app/screenshots/Screenshot3.png)
-![Filter & Plot Data](https://github.com/dimipash/Python_projects/tree/main/web_app/screenshots/Screenshot4.png)
+![Drag & Drop](https://github.com/dimipash/Python_projects/blob/main/web_app/screenshots/Screenshot1.png)
+![Data Preview](https://github.com/dimipash/Python_projects/blob/main/web_app/screenshots/Screenshot2.png)
+![Data Summary](https://github.com/dimipash/Python_projects/blob/main/web_app/screenshots/Screenshot3.png)
+![Filter & Plot Data](https://github.com/dimipash/Python_projects/blob/main/web_app/screenshots/Screenshot4.png)
 
 # Simple Data Dashboard
 
