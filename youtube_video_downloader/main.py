@@ -1,11 +1,3 @@
-"""
-Video Downloader: A GUI application for downloading YouTube videos and extracting audio.
-
-This application allows users to input a YouTube video URL, select a download 
-location, and download both the video file and an extracted audio file (MP3).
-It uses pytube for video downloading and moviepy for audio extraction.
-"""
-
 from tkinter import *
 from tkinter import filedialog
 from pytube import YouTube

@@ -1,10 +1,3 @@
-"""
-Text-to-Speech Converter: A simple GUI application that converts text to speech.
-
-This application allows users to input text, which is then converted to speech
-using Google's Text-to-Speech (gTTS) API and played back to the user.
-"""
-
 from gtts import gTTS
 import os
 from tkinter import *

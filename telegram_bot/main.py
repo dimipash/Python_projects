@@ -9,23 +9,6 @@ from telegram.ext import (
 )
 import logging
 
-"""
-A simple Telegram bot that responds to user messages and commands.
-
-This bot demonstrates basic functionalities of a Telegram bot using the
-python-telegram-bot library. The bot supports several commands such as /start,
-/help, /custom, and /about, and it replies to user messages based on predefined
-text patterns. Logging is enabled to track bot activities and errors.
-
-Commands:
-- /start: Initiates a conversation with the bot.
-- /help: Provides information about available commands.
-- /custom: Responds with a custom message.
-- /about: Shares details about the bot's purpose.
-
-The bot can handle text messages, responding to specific phrases, and logs all
-interactions for easier debugging and monitoring.
-"""
 
 # Constants
 TOKEN: Final[str] = "YOUR_BOT_TOKEN"

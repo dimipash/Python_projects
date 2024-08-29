@@ -1,24 +1,3 @@
-"""
-A command-line implementation of the classic Tic-Tac-Toe game using random moves.
-
-This script simulates a Tic-Tac-Toe game where two players (represented by 1 and 2) take turns making random moves on a 3x3 board. The game continues until one player wins by getting three of their marks (1 or 2) in a row, column, or diagonal, or until the game ends in a tie.
-
-Features:
-- Generates an empty 3x3 board
-- Randomly places moves for players 1 and 2
-- Checks for winning conditions (row, column, diagonal) after each move
-- Detects a tie if the board is full and no winner is found
-- Displays the board after each move
-- Announces the winner or a tie at the end of the game
-
-Requirements:
-- Python 3.x
-- NumPy library
-
-Note: This script requires the NumPy library to be installed for array manipulation.
-"""
-
-# importing all necessary libraries
 import numpy as np
 import random
 from time import sleep
@@ -28,9 +7,7 @@ from time import sleep
 
 
 def create_board():
-    return (np.array([[0, 0, 0],
-                      [0, 0, 0],
-                      [0, 0, 0]]))
+    return np.array([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
 
 
 # Check for empty places on board
@@ -44,7 +21,7 @@ def possibilities(board):
 
             if board[i][j] == 0:
                 l.append((i, j))
-    return (l)
+    return l
 
 
 # Select a random place for the player
@@ -54,7 +31,7 @@ def random_place(board, player):
     selection = possibilities(board)
     current_loc = random.choice(selection)
     board[current_loc] = player
-    return (board)
+    return board
 
 
 # Checks whether the player has three
@@ -71,8 +48,8 @@ def row_win(board, player):
                 continue
 
         if win == True:
-            return (win)
-    return (win)
+            return win
+    return win
 
 
 # Checks whether the player has three
@@ -89,8 +66,8 @@ def col_win(board, player):
                 continue
 
         if win == True:
-            return (win)
-    return (win)
+            return win
+    return win
 
 
 # Checks whether the player has three
@@ -122,9 +99,7 @@ def evaluate(board):
     winner = 0
 
     for player in [1, 2]:
-        if (row_win(board, player) or
-                col_win(board, player) or
-                diag_win(board, player)):
+        if row_win(board, player) or col_win(board, player) or diag_win(board, player):
             winner = player
 
     if np.all(board != 0) and winner == 0:
@@ -150,7 +125,7 @@ def play_game():
             winner = evaluate(board)
             if winner != 0:
                 break
-    return (winner)
+    return winner
 
 
 # Driver Code
