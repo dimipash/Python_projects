@@ -1,3 +1,5 @@
+![screenshot](https://github.com/dimipash/Python_projects/blob/main/alarm_clock/screenshot.png)
+
 # Python Alarm Clock
 
 A simple alarm clock application built with Python and Tkinter.
@@ -18,4 +20,3 @@ This application provides a graphical user interface for setting an alarm. Users
 - Python 3.x
 - Tkinter (usually comes pre-installed with Python)
 - winsound module (for Windows users)
-

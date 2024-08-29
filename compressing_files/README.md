@@ -1,5 +1,3 @@
-### gui.py
-
 # File Compression and Decompression Tool
 
 A simple GUI application for compressing and decompressing files using a custom compression algorithm.
