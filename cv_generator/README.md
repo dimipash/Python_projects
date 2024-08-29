@@ -1,3 +1,7 @@
+![QR code](https://github.com/dimipash/Python_projects/blob/main/cv_generator/mywebsite.png)
+
+![CV Generator](https://github.com/dimipash/Python_projects/blob/main/cv_generator/screenshotjpg.jpg)
+
 # CV Generator
 
 A simple Python application that generates a professional CV in PDF format.
@@ -15,7 +19,3 @@ A simple Python application that generates a professional CV in PDF format.
 - tkinter
 - pyqrcode
 - fpdf
-
-![QR code](https://github.com/dimipash/Python_projects/blob/main/cv_generator/mywebsite.png)
-
-![CV Generator](https://github.com/dimipash/Python_projects/blob/main/cv_generator/screenshotjpg.jpg)

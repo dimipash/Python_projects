@@ -1,10 +1,3 @@
-"""
-QR Code Generator: A simple GUI application for generating QR codes from links.
-
-This application allows users to input a link name and URL, then generates
-and displays a QR code based on the provided information.
-"""
-
 from tkinter import *
 import pyqrcode
 from PIL import ImageTk, Image

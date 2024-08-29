@@ -1,23 +1,3 @@
-"""
-Currency Converter
-
-This program converts amounts between different currencies using real-time exchange rates.
-
-Features:
-- Fetches current exchange rates from Free Currency Converter API
-- Supports conversion between any two currencies
-- Handles user input and potential errors
-- Allows multiple conversions in one session
-
-Usage:
-1. Replace 'YOUR_API_KEY' with a valid API key from Free Currency Converter
-2. Run the script and follow the prompts to convert currencies
-
-Note: This script requires the 'requests' library. Install it using:
-pip install requests
-
-"""
-
 import requests
 
 

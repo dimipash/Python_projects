@@ -1,21 +1,3 @@
-"""
-CSV to PDF Table Generator
-
-This script reads data from a CSV file and generates a PDF with a formatted table using FPDF.
-
-Features:
-- Reads CSV data from 'countries.txt'
-- Creates a customized table in PDF format
-- Applies specific styling to table headers and cells
-- Uses custom colors and font styles
-
-Requirements:
-- fpdf library
-- 'countries.txt' file with CSV data in the same directory
-
-Output: table2.pdf
-"""
-
 from fpdf import FPDF
 from fpdf.fonts import FontFace
 import csv

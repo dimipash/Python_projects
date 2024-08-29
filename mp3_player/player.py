@@ -1,23 +1,3 @@
-"""
-A simple music player application with a graphical user interface (GUI) built using Tkinter and Pygame.
-
-This application allows users to browse and select music files (MP3 format) from their local file system, play, pause, stop, and adjust the volume of the selected music track. It provides a user-friendly interface with various buttons for controlling the music playback and a listbox to display the available music files.
-
-Features:
-- Browse and add music files (MP3) to the playlist
-- Play, pause, stop, and adjust the volume of the selected music track
-- Animated GIF displayed in the main window
-- Customizable buttons for music playback controls
-- Listbox to display the available music files in the playlist
-
-Requirements:
-- Python
-- Tkinter (Python's standard GUI library)
-- Pygame (Python library for multimedia applications)
-
-Note: This application requires the 'pygame' library to be installed for audio playback functionality.
-"""
-
 import os
 from tkinter import Tk, PhotoImage, Label, Button, Frame, Listbox, Scrollbar, filedialog
 from pygame import mixer
@@ -25,7 +5,7 @@ from pygame import mixer
 root = Tk()
 root.title("Simple Music Player")
 root.geometry("485x700+290+10")
-root.configure(background='#333333')
+root.configure(background="#333333")
 root.resizable(False, False)
 mixer.init()
 
@@ -56,7 +36,9 @@ icon_image = PhotoImage(file="logo png.png")
 root.iconphoto(False, icon_image)
 
 frame_count = 30
-frames = [PhotoImage(file='aa1.gif', format='gif -index %i' % i) for i in range(frame_count)]
+frames = [
+    PhotoImage(file="aa1.gif", format="gif -index %i" % i) for i in range(frame_count)
+]
 
 
 def update_animation(index):
@@ -73,20 +55,48 @@ animation_label.place(x=0, y=0)
 root.after(0, update_animation, 0)
 
 play_button_image = PhotoImage(file="play1.png")
-Button(root, image=play_button_image, bg="#FFFFFF", bd=0, height=60, width=60,
-       command=play_music).place(x=215, y=487)
+Button(
+    root,
+    image=play_button_image,
+    bg="#FFFFFF",
+    bd=0,
+    height=60,
+    width=60,
+    command=play_music,
+).place(x=215, y=487)
 
 stop_button_image = PhotoImage(file="stop1.png")
-Button(root, image=stop_button_image, bg="#FFFFFF", bd=0, height=60, width=60,
-       command=mixer.music.stop).place(x=130, y=487)
+Button(
+    root,
+    image=stop_button_image,
+    bg="#FFFFFF",
+    bd=0,
+    height=60,
+    width=60,
+    command=mixer.music.stop,
+).place(x=130, y=487)
 
 volume_button_image = PhotoImage(file="volume.png")
-Button(root, image=volume_button_image, bg="#FFFFFF", bd=0, height=60, width=60,
-       command=mixer.music.unpause).place(x=20, y=487)
+Button(
+    root,
+    image=volume_button_image,
+    bg="#FFFFFF",
+    bd=0,
+    height=60,
+    width=60,
+    command=mixer.music.unpause,
+).place(x=20, y=487)
 
 pause_button_image = PhotoImage(file="pause1.png")
-Button(root, image=pause_button_image, bg="#FFFFFF", bd=0, height=60, width=60,
-       command=mixer.music.pause).place(x=300, y=487)
+Button(
+    root,
+    image=pause_button_image,
+    bg="#FFFFFF",
+    bd=0,
+    height=60,
+    width=60,
+    command=mixer.music.pause,
+).place(x=300, y=487)
 
 menu_image = PhotoImage(file="menu.png")
 Label(root, image=menu_image).place(x=0, y=580, width=485, height=120)
@@ -94,12 +104,29 @@ Label(root, image=menu_image).place(x=0, y=580, width=485, height=120)
 music_frame = Frame(root, bd=2, relief="ridge")
 music_frame.place(x=0, y=585, width=485, height=100)
 
-Button(root, text="Browse Music", width=59, height=1, font=("calibri", 12, "bold"),
-       fg="Black", bg="#FFFFFF", command=add_music).place(x=0, y=550)
+Button(
+    root,
+    text="Browse Music",
+    width=59,
+    height=1,
+    font=("calibri", 12, "bold"),
+    fg="Black",
+    bg="#FFFFFF",
+    command=add_music,
+).place(x=0, y=550)
 
 scrollbar = Scrollbar(music_frame)
-playlist = Listbox(music_frame, width=100, font=("Times new roman", 10), bg="#333333", fg="grey",
-                   selectbackground="lightblue", cursor="hand2", bd=0, yscrollcommand=scrollbar.set)
+playlist = Listbox(
+    music_frame,
+    width=100,
+    font=("Times new roman", 10),
+    bg="#333333",
+    fg="grey",
+    selectbackground="lightblue",
+    cursor="hand2",
+    bd=0,
+    yscrollcommand=scrollbar.set,
+)
 scrollbar.config(command=playlist.yview)
 scrollbar.pack(side="right", fill="y")
 playlist.pack(side="right", fill="both")

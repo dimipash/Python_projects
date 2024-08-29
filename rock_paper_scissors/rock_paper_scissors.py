@@ -1,39 +1,21 @@
-"""
-A simple command-line implementation of the classic Rock-Paper-Scissors game.
-
-This script allows the user to play the Rock-Paper-Scissors game against the computer. The user is prompted to choose one of the three options: Rock, Paper, or Scissors. The computer randomly selects its choice, and the game determines the winner based on the classic rules of the game.
-
-Features:
-- User-friendly prompts for input validation
-- Random choice selection for the computer opponent
-- Game outcome determination based on the rules of Rock-Paper-Scissors
-- Option to play again after each round
-- Supports both Windows and Unix-based systems for clearing the console
-
-Requirements:
-- Python 3.x
-
-Note: This script does not require any external libraries or dependencies.
-"""
-
 import random
 import os
 import re
 
 
 def check_play_status():
-    valid_responses = ['yes', 'no']
+    valid_responses = ["yes", "no"]
     while True:
         try:
-            response = input('Do you wish to play again? (Yes or No): ')
+            response = input("Do you wish to play again? (Yes or No): ")
             if response.lower() not in valid_responses:
-                raise ValueError('Yes or No only')
+                raise ValueError("Yes or No only")
 
-            if response.lower() == 'yes':
+            if response.lower() == "yes":
                 return True
             else:
-                os.system('cls' if os.name == 'nt' else 'clear')
-                print('Thanks for playing!')
+                os.system("cls" if os.name == "nt" else "clear")
+                print("Thanks for playing!")
                 exit()
 
         except ValueError as err:
@@ -43,41 +25,40 @@ def check_play_status():
 def play_rps():
     play = True
     while play:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print('')
-        print('Rock, Paper, Scissors - Shoot!')
+        os.system("cls" if os.name == "nt" else "clear")
+        print("")
+        print("Rock, Paper, Scissors - Shoot!")
 
-        user_choice = input('Choose your weapon'
-                            ' [R]ock], [P]aper, or [S]cissors: ')
+        user_choice = input("Choose your weapon" " [R]ock], [P]aper, or [S]cissors: ")
 
         if not re.match("[SsRrPp]", user_choice):
-            print('Please choose a letter:')
-            print('[R]ock, [P]aper, or [S]cissors')
+            print("Please choose a letter:")
+            print("[R]ock, [P]aper, or [S]cissors")
             continue
 
-        print(f'You chose: {user_choice}')
+        print(f"You chose: {user_choice}")
 
-        choices = ['R', 'P', 'S']
+        choices = ["R", "P", "S"]
         opp_choice = random.choice(choices)
 
-        print(f'I chose: {opp_choice}')
+        print(f"I chose: {opp_choice}")
 
         if opp_choice == user_choice.upper():
-            print('Tie!')
+            print("Tie!")
             play = check_play_status()
-        elif opp_choice == 'R' and user_choice.upper() == 'S':
-            print('Rock beats scissors, I win!')
+        elif opp_choice == "R" and user_choice.upper() == "S":
+            print("Rock beats scissors, I win!")
             play = check_play_status()
-        elif opp_choice == 'S' and user_choice.upper() == 'P':
-            print('Scissors beats paper! I win!')
+        elif opp_choice == "S" and user_choice.upper() == "P":
+            print("Scissors beats paper! I win!")
             play = check_play_status()
-        elif opp_choice == 'P' and user_choice.upper() == 'R':
-            print('Paper beats rock, I win!')
+        elif opp_choice == "P" and user_choice.upper() == "R":
+            print("Paper beats rock, I win!")
             play = check_play_status()
         else:
-            print('You win!\n')
+            print("You win!\n")
             play = check_play_status()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     play_rps()

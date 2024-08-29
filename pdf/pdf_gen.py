@@ -1,19 +1,3 @@
-"""
-Advanced PDF Generator with Chapters
-
-This script creates a PDF document using a custom FPDF class with the following features:
-- Custom header with centered, colored title
-- Custom footer with page numbers
-- Chapter formatting with titles and body text from external files
-- Metadata (title and author) setting
-
-Requirements:
-- fpdf library
-- para.txt file(s) in the same directory for chapter content
-
-Output: sample23.pdf
-"""
-
 from fpdf import FPDF
 
 
@@ -26,9 +10,10 @@ class PDF(FPDF):
         self.set_fill_color(230, 230, 0)
         self.set_text_color(220, 50, 50)
         self.set_line_width(1)
-        self.cell(width, 9, self.title, new_x="LMARGIN", new_y="NEXT", align="C", fill=True)
+        self.cell(
+            width, 9, self.title, new_x="LMARGIN", new_y="NEXT", align="C", fill=True
+        )
         self.ln(10)
-
 
     def footer(self):
         self.set_y(-15)
@@ -36,11 +21,18 @@ class PDF(FPDF):
         self.set_text_color(128)
         self.cell(0, 10, f"Page {self.page_no()}", align="C")
 
-
     def chapter_title(self, num, label):
         self.set_font("helvetica", "", 12)
         self.set_fill_color(200, 220, 255)
-        self.cell(0, 6, f"Chapter {num} : {label}", new_x="LMARGIN", new_y="NEXT", align="L", fill=True)
+        self.cell(
+            0,
+            6,
+            f"Chapter {num} : {label}",
+            new_x="LMARGIN",
+            new_y="NEXT",
+            align="L",
+            fill=True,
+        )
 
     def chapter_body(self, filepath):
         with open(filepath, "rb") as fh:

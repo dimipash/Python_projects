@@ -1,44 +1,61 @@
-# File Compression and Decompression Tool
+# Compressing Files Project
 
-A simple GUI application for compressing and decompressing files using a custom compression algorithm.
-
-## Description
-
-This application provides a user-friendly interface for compressing and decompressing files. It uses a custom compression module to perform the operations.
+This project provides a simple file compression and decompression tool using Python. It includes both command-line and graphical user interface implementations.
 
 ## Features
 
-- Compress files to reduce storage space
-- Decompress previously compressed files
-- Simple and intuitive graphical user interface
-- Custom compression algorithm
+- Compress and decompress text files
+- Command-line interface
+- Two graphical user interfaces (GUI) for ease of use
+- Uses zlib for compression and base64 for encoding
+
+## Files
+
+- `compress_module.py`: Core module with compression and decompression functions
+- `compress.py`: Simple command-line implementation
+- `gui.py`: Basic GUI implementation
+- `gui_any_file.py`: Advanced GUI with file dialog
 
 ## Requirements
 
 - Python 3.x
-- Tkinter (usually comes pre-installed with Python)
-- Custom `compress_module.py` (ensure this file is in the same directory)
+- tkinter (usually comes pre-installed with Python)
 
-### gui_any_file.py
+## Usage
 
-# File Compression and Decompression Tool
+### Command-line Interface
 
-A user-friendly GUI application for compressing and decompressing files using a custom compression algorithm.
+Run `compress.py` to compress a file named `demo.txt` and create a compressed file named `compressed.txt`.
 
-## Description
+```
+python compress.py
+```
 
-This application provides an intuitive interface for compressing and decompressing files. It uses a file dialog for input selection and a custom compression module to perform the operations.
+### Basic GUI
 
-## Features
+Run `gui.py` to open a simple graphical interface:
 
-- Compress files to reduce storage space
-- Decompress previously compressed files
-- File dialog for easy input file selection
-- Simple graphical user interface
-- Custom compression algorithm
+```
+python gui.py
+```
 
-## Requirements
+1. Enter the input file path
+2. Enter the output file path
+3. Click "Compress" or "Decompress" as needed
 
-- Python 3.x
-- Tkinter (usually comes pre-installed with Python)
-- Custom `compress_module.py` (ensure this file is in the same directory)
+### Advanced GUI
+
+Run `gui_any_file.py` for a more user-friendly interface with file dialogs:
+
+```
+python gui_any_file.py
+```
+
+1. Click "Compress" or "Decompress"
+2. Select the input file using the file dialog
+3. Enter the output file name
+4. The operation will be performed automatically
+
+## How It Works
+
+The compression process uses zlib to compress the data and base64 to encode it into a text format. The decompression process reverses these steps.

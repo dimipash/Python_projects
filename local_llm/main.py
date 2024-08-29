@@ -4,24 +4,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
-"""
-Local LLM Chatbot
-
-This script implements a chatbot using a local language model (LLM) via the Ollama library.
-It maintains a conversation history and allows users to interact with the AI in a 
-command-line interface.
-
-Features:
-- Uses Ollama for local LLM inference
-- Maintains conversation history
-- Allows clearing of conversation history
-- Truncates context to prevent exceeding token limits
-
-Usage:
-Run the script and interact with the chatbot via the command line.
-Type 'exit' to quit the program or 'clear' to start a new conversation.
-
-"""
 
 # Configuration
 MODEL_NAME = "llama3.1"

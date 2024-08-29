@@ -1,3 +1,5 @@
+![Calculator](https://github.com/dimipash/Python_projects/blob/main/calculator/modern_calculator.jpg)
+
 # Modern Calculator
 
 A sleek, modern calculator application built with Python and CustomTkinter.
@@ -19,5 +21,3 @@ This project is a graphical calculator that provides a user-friendly interface f
 - Python 3.x
 - CustomTkinter library
 - Tkinter (usually comes pre-installed with Python)
-
-![Calculator](https://github.com/dimipash/Python_projects/blob/main/calculator/modern_calculator.jpg)

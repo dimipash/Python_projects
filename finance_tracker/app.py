@@ -1,16 +1,3 @@
-"""
-A simple expense tracking app that calculates the total expenses for a given month based on a CSV file,
-and updates a JSON file with the monthly expense data.
-
-The app provides the following functionality:
-- Parses expense data from a CSV file, handling invalid rows and amounts
-- Calculates the total expenses for a given month
-- Updates a JSON file with the monthly expense data
-- Provides a command-line interface for the user to input the month and view the total expenses
-
-The app uses Python's built-in `csv` and `json` modules, as well as type annotations for better readability and maintainability.
-"""
-
 import os
 import csv
 import json
