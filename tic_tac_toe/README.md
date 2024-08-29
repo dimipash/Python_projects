@@ -34,7 +34,7 @@ This is a simple implementation of the classic Tic-Tac-Toe game in Python. The g
 Run the game by executing the Python script:
 
 ```
-python tictactoe.py
+python tic_tac_toe.py
 ```
 
 The game will automatically play out, displaying the board state after each move and announcing the winner at the end.

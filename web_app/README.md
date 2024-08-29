@@ -33,7 +33,7 @@ This is a Streamlit-based web application that allows users to upload a CSV file
 1. Run the Streamlit app:
 
    ```
-   streamlit run app.py
+   streamlit run main.py
    ```
 
 2. Open your web browser and go to `http://localhost:8501` (or the address provided in the terminal).

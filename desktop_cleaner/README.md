@@ -39,7 +39,7 @@ This Python script automatically organizes files on your desktop by moving them 
 Run the script from the command line:
 
 ```
-python desktop_cleanup.py
+python main.py
 ```
 
 The script will automatically organize the files on your desktop.

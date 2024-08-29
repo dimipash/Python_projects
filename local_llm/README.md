@@ -33,7 +33,7 @@ An interactive AI-powered chatbot built with Python, leveraging the LangChain li
 Run the chatbot with the following command:
 
 ```
-python chatbot.py
+python main.py
 ```
 
 - Type your messages and press Enter to interact with the AI.

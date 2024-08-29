@@ -1,5 +1,3 @@
-"""Opens a set of predefined webpages in the default web browser."""
-
 import sys
 import webbrowser
 
