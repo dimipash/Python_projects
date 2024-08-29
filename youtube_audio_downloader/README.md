@@ -1,4 +1,4 @@
-![screenshot](https://github.com/dimipash/Python_projects/tree/main/youtube_audio_downloader/screenshot.png)
+![screenshot](https://github.com/dimipash/Python_projects/blob/main/youtube_audio_downloader/screenshot.png)
 
 # YouTube Audio Downloader
 
