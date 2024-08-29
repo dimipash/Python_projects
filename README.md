@@ -28,6 +28,19 @@ Working with CSV files
 
 A simple Python application that generates a professional CV in PDF format.
 
+### [Student Database Management System](https://github.com/dimipash/Python_projects/tree/main/database_app)
+
+A simple PostgreSQL-based student database management system with a graphical user interface (GUI) built using Tkinter.
+
+### [Desktop Cleaner](https://github.com/dimipash/Python_projects/tree/main/desktop_cleaner)
+
+Desktop Cleanup Script.
+
+### [Finance Tracker](https://github.com/dimipash/Python_projects/tree/main/finance_tracker)
+
+A simple expense tracking app that calculates the total expenses for a given month based on a CSV file,
+and updates a JSON file with the monthly expense data.
+
 ### [GUI apps](https://github.com/dimipash/Python_projects/tree/main/gui)
 
 Various graphical user interface apps.
@@ -35,6 +48,10 @@ Various graphical user interface apps.
 ### [Invoice Generator](https://github.com/dimipash/Python_projects/tree/main/invoice_generator)
 
 Invoice Generator: A simple GUI application for generating medicine invoices.
+
+### [Local LLM Chatbot](https://github.com/dimipash/Python_projects/tree/main/local_llm)
+
+Local Language Model (LLM) Chatbot using a LLM via the Ollama library.
 
 ### [MP3 Player](https://github.com/dimipash/Python_projects/tree/main/mp3_player)
 
@@ -64,6 +81,10 @@ A simple command-line dice game implementation.
 
 Snake Game: A classic arcade-style game implemented with Pygame.
 
+### [Telegram Bot](https://github.com/dimipash/Python_projects/tree/main/telegram_bot)
+
+A simple Telegram bot that responds to user messages and commands.
+
 ### [Text Editor](https://github.com/dimipash/Python_projects/tree/main/text_editor)
 
 This is a simple text editor built with Python and the Tkinter library. It allows you to create, open, edit, and save text files.
@@ -76,13 +97,22 @@ Text-to-Speech Converter: A simple GUI application that converts text to speech.
 
 A command-line implementation of the classic Tic-Tac-Toe game using random moves.
 
+### [Streamlit Dashboard](https://github.com/dimipash/Python_projects/tree/main/web_app)
+
+This Streamlit app allows users to upload a CSV file, preview the data, generate a summary, filter the data, and plot a line chart.
+
+### [Web Crawler](https://github.com/dimipash/Python_projects/tree/main/web_crawler)
+
+Multi-threaded web crawler implemented in Python. It's designed to crawl websites, extract links, and store the crawled data efficiently.
+
+### [Website Automator](https://github.com/dimipash/Python_projects/tree/main/website_automator)
+
+Opens a set of predefined webpages in the default web browser.
+
+### [YouTube Audio Downloader](https://github.com/dimipash/Python_projects/tree/main/youtube_audio_downloader)
+
+This Python script allows users to download the audio from YouTube videos in various formats and qualities.
+
 ### [YouTube Video Downloader](https://github.com/dimipash/Python_projects/tree/main/youtube_video_downloader)
 
 YouTube Video Downloader: A GUI application for downloading YouTube videos and extracting audio.
-
-
-
-
-
-
-

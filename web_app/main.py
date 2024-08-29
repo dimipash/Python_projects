@@ -1,21 +1,3 @@
-"""
-Simple Data Dashboard
-
-This Streamlit app allows users to upload a CSV file, preview the data, generate a summary, filter the data, and plot a line chart.
-
-Features:
-- File uploader to select a CSV file
-- Data preview and summary
-- Ability to filter data by selecting a column and a value
-- Line chart generation based on selected x and y-axis columns
-
-Usage:
-1. Run the app using Streamlit.
-2. Upload a CSV file when prompted.
-3. Explore the data preview, summary, and filtering options.
-4. Select x and y-axis columns to generate a line chart.
-"""
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
