@@ -4,6 +4,14 @@ This repository contains various Python projects, each in its own directory.
 
 ## Projects
 
+### [AI Task Breakdown](https://github.com/dimipash/Python_projects/tree/main/ai_task_breakdown)
+
+AI Task Breakdown helps users break down tasks into smaller, manageable milestones.
+
+### [AI Voice Assistant](https://github.com/dimipash/Python_projects/tree/main/ai_voice_assistant)
+
+This voice assistant project combines speech recognition, natural language processing
+
 ### [Python Alarm Clock](https://github.com/dimipash/Python_projects/tree/main/alarm_clock)
 
 A simple alarm clock application built with Python and Tkinter.
