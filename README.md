@@ -4,6 +4,10 @@ This repository contains various Python projects, each in its own directory.
 
 ## Projects
 
+### [AI Document Summary](https://github.com/dimipash/Python_projects/tree/main/ai_doc_summary)
+
+A document summarization tool using LangChain and Ollama for processing and analyzing text documents.
+
 ### [AI Task Breakdown](https://github.com/dimipash/Python_projects/tree/main/ai_task_breakdown)
 
 AI Task Breakdown helps users break down tasks into smaller, manageable milestones.
@@ -11,10 +15,6 @@ AI Task Breakdown helps users break down tasks into smaller, manageable mileston
 ### [AI Voice Assistant](https://github.com/dimipash/Python_projects/tree/main/ai_voice_assistant)
 
 This voice assistant project combines speech recognition, natural language processing
-
-### [Python Alarm Clock](https://github.com/dimipash/Python_projects/tree/main/alarm_clock)
-
-A simple alarm clock application built with Python and Tkinter.
 
 ### [Calculator](https://github.com/dimipash/Python_projects/tree/main/calculator)
 
@@ -28,30 +28,34 @@ A simple GUI application for compressing and decompressing files using a custom 
 
 A simple GUI application for compressing and decompressing files using a custom compression algorithm.
 
-### [Working with CSV files](https://github.com/dimipash/Python_projects/tree/main/csv)
+### [Currency Converter](https://github.com/dimipash/Python_projects/tree/main/currency_converter)
 
-Working with CSV files
+A Python-based currency converter that uses real-time exchange rates to convert between different currencies.
 
 ### [CV Generator](https://github.com/dimipash/Python_projects/tree/main/cv_generator)
 
 A simple Python application that generates a professional CV in PDF format.
 
-### [Student Database Management System](https://github.com/dimipash/Python_projects/tree/main/database_app)
-
-A simple PostgreSQL-based student database management system with a graphical user interface (GUI) built using Tkinter.
-
 ### [Desktop Cleaner](https://github.com/dimipash/Python_projects/tree/main/desktop_cleaner)
 
 Desktop Cleanup Script.
+
+### [Facebook Auto Poster](https://github.com/dimipash/Python_projects/tree/main/facebook_auto_poster)
+
+A Python script that automates the process of logging into Facebook and posting status updates using Selenium WebDriver.
 
 ### [Finance Tracker](https://github.com/dimipash/Python_projects/tree/main/finance_tracker)
 
 A simple expense tracking app that calculates the total expenses for a given month based on a CSV file,
 and updates a JSON file with the monthly expense data.
 
-### [GUI apps](https://github.com/dimipash/Python_projects/tree/main/gui)
+### [GUI Examples](https://github.com/dimipash/Python_projects/tree/main/gui)
 
-Various graphical user interface apps.
+A collection of GUI examples demonstrating various Tkinter features including dropdown menus and status bars.
+
+### [Image Watermarker Tool](https://github.com/dimipash/Python_projects/tree/main/image_watermarker_tool)
+
+A tool for adding text watermarks to images in bulk, with customizable position and font settings.
 
 ### [Invoice Generator](https://github.com/dimipash/Python_projects/tree/main/invoice_generator)
 
@@ -73,6 +77,10 @@ Password Hashing and Validation GUI with Bcrypt.
 
 PDF Generator with Links and HTML, Custom PDF Generator with Header and Footer, Advanced PDF Generator with Chapters, CSV to PDF Table Generator.
 
+### [Python Alarm Clock](https://github.com/dimipash/Python_projects/tree/main/alarm_clock)
+
+A simple alarm clock application built with Python and Tkinter.
+
 ### [QR Code Generator](https://github.com/dimipash/Python_projects/tree/main/qr_code_generator)
 
 QR Code Generator: A simple GUI application for generating QR codes from links.
@@ -89,6 +97,14 @@ A simple command-line dice game implementation.
 
 Snake Game: A classic arcade-style game implemented with Pygame.
 
+### [Streamlit Dashboard](https://github.com/dimipash/Python_projects/tree/main/web_app)
+
+This Streamlit app allows users to upload a CSV file, preview the data, generate a summary, filter the data, and plot a line chart.
+
+### [Student Database Management System](https://github.com/dimipash/Python_projects/tree/main/database_app)
+
+A simple PostgreSQL-based student database management system with a graphical user interface (GUI) built using Tkinter.
+
 ### [Telegram Bot](https://github.com/dimipash/Python_projects/tree/main/telegram_bot)
 
 A simple Telegram bot that responds to user messages and commands.
@@ -104,10 +120,6 @@ Text-to-Speech Converter: A simple GUI application that converts text to speech.
 ### [Tic-Tac-Toe](https://github.com/dimipash/Python_projects/tree/main/tic_tac_toe)
 
 A command-line implementation of the classic Tic-Tac-Toe game using random moves.
-
-### [Streamlit Dashboard](https://github.com/dimipash/Python_projects/tree/main/web_app)
-
-This Streamlit app allows users to upload a CSV file, preview the data, generate a summary, filter the data, and plot a line chart.
 
 ### [Web Crawler](https://github.com/dimipash/Python_projects/tree/main/web_crawler)
 
