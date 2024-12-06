@@ -49,6 +49,10 @@ A Python script that automates the process of logging into Facebook and posting 
 A simple expense tracking app that calculates the total expenses for a given month based on a CSV file,
 and updates a JSON file with the monthly expense data.
 
+### [Fitness Tracker](https://github.com/dimipash/Python_projects/tree/main/fitness_tracker)
+
+A comprehensive fitness tracking application that allows users to track their workouts and nutrition. Features include user registration, workout logging, nutrition tracking, and progress monitoring using SQLAlchemy for data persistence.
+
 ### [GUI Examples](https://github.com/dimipash/Python_projects/tree/main/gui)
 
 A collection of GUI examples demonstrating various Tkinter features including dropdown menus and status bars.
