@@ -1,0 +1,44 @@
+/* GitHub Dark Default inspired theme */
+.stApp {
+    background-color: #0d1117;
+    color: #c9d1d9;
+}
+
+/* Header styling */
+.main-header {
+    background: linear-gradient(90deg, #238636 0%, #2ea043 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+/* Chat message containers */
+.stChatMessage {
+    background-color: #161b22 !important;
+    border: 1px solid #30363d !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+}
+
+/* User message specific styling */
+.stChatMessage[data-testid="user-message"] {
+    background-color: #1f6feb20 !important;
+}
+
+/* Assistant message specific styling */
+.stChatMessage[data-testid="assistant-message"] {
+    background-color: #23863620 !important;
+}
+
+/* Sidebar styling */
+.css-1d391kg {
+    background-color: #161b22;
+}
+
+/* Chat input styling */
+.stChatInputContainer {
+    background-color: #161b22 !important;
+    border: 1px solid #30363d !important;
+    border-radius: 8px !important;
+    padding: 0.5rem !important;
+} 
