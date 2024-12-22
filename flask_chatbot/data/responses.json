@@ -1,0 +1,9 @@
+{
+    "hello": "Hi there! How can I help you today?",
+    "how are you": "I'm doing well, thank you for asking!",
+    "what is your name": "I'm PyBot, a demonstration chatbot.",
+    "what can you do": "I can help answer basic questions and showcase Python programming skills!",
+    "goodbye": "Goodbye! Have a great day!",
+    "tell me about python": "Python is a high-level, interpreted programming language known for its simplicity and readability.",
+    "what are your features": "I demonstrate skills in Python programming, including JSON handling, string processing, and basic NLP concepts."
+} 
