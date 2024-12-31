@@ -4,13 +4,13 @@ This repository contains various Python projects, each in its own directory.
 
 ## Projects
 
-### [Fitness Tracker](https://github.com/dimipash/Python_projects/tree/main/fitness_tracker)
-
-A comprehensive fitness tracking application that helps users monitor their physical activity, log workouts, and track health metrics.
-
 ### [AI Document Summary](https://github.com/dimipash/Python_projects/tree/main/ai_doc_summary)
 
 A document summarization tool using LangChain and Ollama for processing and analyzing text documents.
+
+### [AI Image Recognition](https://github.com/dimipash/Python_projects/tree/main/ai_image_recognition)
+
+An image recognition application using machine learning models to classify and identify objects in images.
 
 ### [AI Task Breakdown](https://github.com/dimipash/Python_projects/tree/main/ai_task_breakdown)
 
@@ -32,6 +32,10 @@ A simple GUI application for compressing and decompressing files using a custom 
 
 A simple GUI application for compressing and decompressing files using a custom compression algorithm.
 
+### [CSV Processing](https://github.com/dimipash/Python_projects/tree/main/csv)
+
+A collection of tools for working with CSV files, including advanced parameter handling, pandas integration, and file operations.
+
 ### [Currency Converter](https://github.com/dimipash/Python_projects/tree/main/currency_converter)
 
 A Python-based currency converter that uses real-time exchange rates to convert between different currencies.
@@ -39,6 +43,10 @@ A Python-based currency converter that uses real-time exchange rates to convert 
 ### [CV Generator](https://github.com/dimipash/Python_projects/tree/main/cv_generator)
 
 A simple Python application that generates a professional CV in PDF format.
+
+### [Database App](https://github.com/dimipash/Python_projects/tree/main/database_app)
+
+A simple PostgreSQL-based student database management system with a graphical user interface (GUI) built using Tkinter.
 
 ### [Desktop Cleaner](https://github.com/dimipash/Python_projects/tree/main/desktop_cleaner)
 
@@ -55,15 +63,31 @@ and updates a JSON file with the monthly expense data.
 
 ### [Fitness Tracker](https://github.com/dimipash/Python_projects/tree/main/fitness_tracker)
 
-A comprehensive fitness tracking application that allows users to track their workouts and nutrition. Features include user registration, workout logging, nutrition tracking, and progress monitoring using SQLAlchemy for data persistence.
+A comprehensive fitness tracking application that helps users monitor their physical activity, log workouts, and track health metrics.
+
+### [Flask Chatbot](https://github.com/dimipash/Python_projects/tree/main/flask_chatbot)
+
+A web-based chatbot application built with Flask, featuring a modular architecture and comprehensive testing suite.
+
+### [Groq Chatbot](https://github.com/dimipash/Python_projects/tree/main/groq_chatbot)
+
+A chatbot implementation using Groq's AI platform, featuring a web interface and custom styling.
 
 ### [GUI Examples](https://github.com/dimipash/Python_projects/tree/main/gui)
 
 A collection of GUI examples demonstrating various Tkinter features including dropdown menus and status bars.
 
+### [Image to Sketch](https://github.com/dimipash/Python_projects/tree/main/image_to_sketch)
+
+A Python application that converts images into pencil sketch-like representations using computer vision techniques.
+
 ### [Image Watermarker Tool](https://github.com/dimipash/Python_projects/tree/main/image_watermarker_tool)
 
 A tool for adding text watermarks to images in bulk, with customizable position and font settings.
+
+### [Instagram Analytics](https://github.com/dimipash/Python_projects/tree/main/instagram%20analytics)
+
+A tool for analyzing Instagram account metrics and generating insights from social media data.
 
 ### [Invoice Generator](https://github.com/dimipash/Python_projects/tree/main/invoice_generator)
 
@@ -128,6 +152,10 @@ Text-to-Speech Converter: A simple GUI application that converts text to speech.
 ### [Tic-Tac-Toe](https://github.com/dimipash/Python_projects/tree/main/tic_tac_toe)
 
 A command-line implementation of the classic Tic-Tac-Toe game using random moves.
+
+### [Voice Cloner](https://github.com/dimipash/Python_projects/tree/main/voice_clonner)
+
+A voice cloning application that uses machine learning to replicate and synthesize human voices.
 
 ### [Web Crawler](https://github.com/dimipash/Python_projects/tree/main/web_crawler)
 
