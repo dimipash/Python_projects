@@ -125,6 +125,10 @@ This is a simple command-line game of Rock, Paper, Scissors built with Python. I
 
 A simple command-line dice game implementation.
 
+### [Smart Expense Categorizer](https://github.com/dimipash/Python_projects/tree/main/smart_expense_categorizer)
+
+An intelligent expense analysis tool that automatically categorizes transactions using machine learning and generates visual spending reports.
+
 ### [Snake Game](https://github.com/dimipash/Python_projects/tree/main/snake)
 
 Snake Game: A classic arcade-style game implemented with Pygame.
