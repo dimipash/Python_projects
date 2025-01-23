@@ -20,6 +20,10 @@ AI Task Breakdown helps users break down tasks into smaller, manageable mileston
 
 This voice assistant project combines speech recognition, natural language processing
 
+### [Alarm Clock](https://github.com/dimipash/Python_projects/tree/main/alarm_clock)
+
+A simple alarm clock application built with Python and Tkinter.
+
 ### [Calculator](https://github.com/dimipash/Python_projects/tree/main/calculator)
 
 A sleek, modern calculator application built with Python and CustomTkinter.
@@ -55,6 +59,10 @@ Desktop Cleanup Script.
 ### [Facebook Auto Poster](https://github.com/dimipash/Python_projects/tree/main/facebook_auto_poster)
 
 A Python script that automates the process of logging into Facebook and posting status updates using Selenium WebDriver.
+
+### [Financial Analyzer](https://github.com/dimipash/Python_projects/tree/main/financial_analyzer)
+
+A comprehensive financial analysis tool for evaluating investment opportunities, analyzing market trends, and generating financial reports.
 
 ### [Finance Tracker](https://github.com/dimipash/Python_projects/tree/main/finance_tracker)
 
@@ -109,10 +117,6 @@ Password Hashing and Validation GUI with Bcrypt.
 
 PDF Generator with Links and HTML, Custom PDF Generator with Header and Footer, Advanced PDF Generator with Chapters, CSV to PDF Table Generator.
 
-### [Python Alarm Clock](https://github.com/dimipash/Python_projects/tree/main/alarm_clock)
-
-A simple alarm clock application built with Python and Tkinter.
-
 ### [QR Code Generator](https://github.com/dimipash/Python_projects/tree/main/qr_code_generator)
 
 QR Code Generator: A simple GUI application for generating QR codes from links.
@@ -161,6 +165,10 @@ A command-line implementation of the classic Tic-Tac-Toe game using random moves
 
 A voice cloning application that uses machine learning to replicate and synthesize human voices.
 
+### [Voice Python Mentor](https://github.com/dimipash/Python_projects/tree/main/voice_python_mentor)
+
+An interactive voice-guided Python learning assistant that provides real-time coding feedback and explanations.
+
 ### [Web Crawler](https://github.com/dimipash/Python_projects/tree/main/web_crawler)
 
 Multi-threaded web crawler implemented in Python. It's designed to crawl websites, extract links, and store the crawled data efficiently.
@@ -168,6 +176,10 @@ Multi-threaded web crawler implemented in Python. It's designed to crawl website
 ### [Website Automator](https://github.com/dimipash/Python_projects/tree/main/website_automator)
 
 Opens a set of predefined webpages in the default web browser.
+
+### [Wi-Fi Security Analyzer](https://github.com/dimipash/Python_projects/tree/main/wi-fi_security)
+
+A network security tool for analyzing Wi-Fi configurations, detecting vulnerabilities, and suggesting security improvements.
 
 ### [YouTube Audio Downloader](https://github.com/dimipash/Python_projects/tree/main/youtube_audio_downloader)
 
