@@ -1,3 +1,0 @@
-sqlalchemy>=2.0.36
-bcrypt>=4.2.1
-tqdm>=4.66.1
