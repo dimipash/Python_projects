@@ -22,8 +22,11 @@ A simple alarm clock application built with Python and Tkinter.
 ### [Calculator](https://github.com/dimipash/Python_projects/tree/main/calculator)
 A sleek, modern calculator application built with Python and CustomTkinter.
 
+
+### [CLI To-Do App](https://github.com/dimipash/Python_projects/tree/main/cli_to_do_app)
+A command-line to-do application using Typer.
+
 ### [Compressing files](https://github.com/dimipash/Python_projects/tree/main/compressing_files)
-A simple GUI application for compressing and decompressing files using a custom compression algorithm.
 
 ### [Credit Card Validator](https://github.com/dimipash/Python_projects/tree/main/credit_card_validator)
 A simple GUI application for compressing and decompressing files using a custom compression algorithm.
