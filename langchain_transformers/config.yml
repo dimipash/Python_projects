@@ -1,0 +1,18 @@
+models:
+  summarization:
+    base_model: "facebook/bart-large-cnn"
+    refinement_model: "facebook/bart-large"
+    qa_model: "deepset/roberta-base-squad2"
+    device: 0  # -1 for CPU, 0+ for GPU
+    max_length: 1024
+
+system:
+  logging_level: "INFO"
+  cache_dir: "./model_cache"
+  max_input_length: 4096
+  max_summary_length: 512
+
+defaults:
+  summary_length: "medium"
+  temperature: 0.7
+  num_beams: 4
