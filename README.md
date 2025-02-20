@@ -18,7 +18,7 @@ AI Task Breakdown helps users break down tasks into smaller, manageable mileston
 
 ### [AI Voice Assistant](https://github.com/dimipash/Python_projects/tree/main/ai_voice_assistant)
 
-This voice assistant project combines speech recognition, natural language processing
+This voice assistant project combines speech recognition, natural language processing.
 
 ### [Alarm Clock](https://github.com/dimipash/Python_projects/tree/main/alarm_clock)
 
@@ -34,9 +34,11 @@ A command-line to-do application using Typer.
 
 ### [Compressing files](https://github.com/dimipash/Python_projects/tree/main/compressing_files)
 
+A simple GUI application for compressing and decompressing files using a custom compression algorithm.
+
 ### [Credit Card Validator](https://github.com/dimipash/Python_projects/tree/main/credit_card_validator)
 
-A simple GUI application for compressing and decompressing files using a custom compression algorithm.
+A simple credit card validation application.
 
 ### [CSV Processing](https://github.com/dimipash/Python_projects/tree/main/csv)
 
@@ -72,8 +74,7 @@ A comprehensive financial analysis tool for evaluating investment opportunities,
 
 ### [Finance Tracker](https://github.com/dimipash/Python_projects/tree/main/finance_tracker)
 
-A simple expense tracking app that calculates the total expenses for a given month based on a CSV file,
-and updates a JSON file with the monthly expense data.
+A simple expense tracking app that calculates the total expenses for a given month based on a CSV file, and updates a JSON file with the monthly expense data.
 
 ### [Fitness Tracker](https://github.com/dimipash/Python_projects/tree/main/fitness_tracker)
 
@@ -106,6 +107,10 @@ A tool for analyzing Instagram account metrics and generating insights from soci
 ### [Invoice Generator](https://github.com/dimipash/Python_projects/tree/main/invoice_generator)
 
 Invoice Generator: A simple GUI application for generating medicine invoices.
+
+### [Langchain Transformers](https://github.com/dimipash/Python_projects/tree/main/langchain_transformers)
+
+A Python application for document summarization and question-answering using local Hugging Face models, with configurable model management and interactive Q&A mode.
 
 ### [Local LLM Chatbot](https://github.com/dimipash/Python_projects/tree/main/local_llm)
 
