@@ -1,113 +1,121 @@
-import os
-from typing import Annotated, Dict
-from contextlib import contextmanager
-from threading import Lock
-from dotenv import load_dotenv
-from fastapi import FastAPI, Depends, HTTPException, Header, status
-from pydantic import BaseModel, Field
-import ollama
+import logging
+from typing import Dict, Optional
 
-# Load environment variables first
+import ollama
+import uvicorn
+from fastapi import FastAPI, Depends, HTTPException, Header
+from pydantic import BaseModel
+from dotenv import load_dotenv
+import os
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO, 
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Load environment variables
 load_dotenv()
 
-class AppConfig(BaseModel):
-    """Application configuration settings"""
-    api_keys: Dict[str, int] = Field(
-        default_factory=lambda: {os.getenv("API_KEY"): 10},
-        description="API keys with remaining credits"
-    )
-    model_name: str = "deepseek-r1:1.5b"
-    max_prompt_length: int = 500
+class APIKeyManager:
+    """
+    Manages API keys and their associated credits.
+    
+    This class provides a simple in-memory credit tracking system 
+    for API key authentication and usage.
+    """
+    def __init__(self):
+        # Load API keys from environment variable
+        api_keys_str = os.getenv("API_KEYS", "")
+        self.api_key_credits: Dict[str, int] = {
+            key.strip(): 5 for key in api_keys_str.split(',') if key.strip()
+        }
+        logger.info(f"Initialized API keys: {list(self.api_key_credits.keys())}")
 
-class APICreditsManager:
-    """Thread-safe API credit management"""
-    def __init__(self, initial_credits: Dict[str, int]):
-        self.credits = initial_credits
-        self.lock = Lock()
-
-    @contextmanager
-    def use_credit(self, api_key: str):
-        """Context manager for safe credit deduction"""
-        with self.lock:
-            if self.credits.get(api_key, 0) <= 0:
-                raise HTTPException(
-                    status_code=status.HTTP_403_FORBIDDEN,
-                    detail="No credits remaining for this API key"
-                )
-            self.credits[api_key] -= 1
+    def verify_api_key(self, api_key: Optional[str]) -> str:
+        """
+        Verify and validate the API key.
         
-        try:
-            yield
-        except Exception:
-            with self.lock:
-                self.credits[api_key] += 1  # Revert on error
-            raise
+        Args:
+            api_key (str): The API key to verify.
+        
+        Raises:
+            HTTPException: If the API key is invalid or has no credits.
+        
+        Returns:
+            str: The validated API key.
+        """
+        if not api_key:
+            logger.warning("No API key provided")
+            raise HTTPException(status_code=401, detail="API key is required")
+        
+        credits = self.api_key_credits.get(api_key, 0)
+        if credits <= 0:
+            logger.warning(f"Invalid or exhausted API key: {api_key}")
+            raise HTTPException(status_code=401, detail="Invalid API Key or no credits remaining")
+        
+        return api_key
+
+    def consume_credit(self, api_key: str) -> None:
+        """
+        Consume a credit for the given API key.
+        
+        Args:
+            api_key (str): The API key to consume credit for.
+        """
+        if api_key in self.api_key_credits:
+            self.api_key_credits[api_key] -= 1
+            logger.info(f"Credit consumed for API key. Remaining: {self.api_key_credits[api_key]}")
 
 class GenerateRequest(BaseModel):
-    """Request model for generation endpoint"""
-    prompt: str = Field(..., min_length=1, max_length=500)
-
-class GenerateResponse(BaseModel):
-    """Response model for generation endpoint"""
-    response: str
-    remaining_credits: int
-
-app = FastAPI(title="LLM API Service", version="0.1.0")
-config = AppConfig()
-credits_manager = APICreditsManager(config.api_keys)
-
-def get_api_key(x_api_key: Annotated[str, Header()]) -> str:
-    """Dependency to validate API key header"""
-    if x_api_key not in credits_manager.credits:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or missing API key"
-        )
-    return x_api_key
-
-@app.post("/generate", response_model=GenerateResponse)
-async def generate_text(
-    request: GenerateRequest,
-    api_key: Annotated[str, Depends(get_api_key)]
-) -> GenerateResponse:
     """
-    Generate text using the LLM model
+    Pydantic model for generate endpoint request.
+    """
+    prompt: str
+    model: str = "deepseek-r1:1.5b"
+
+# Initialize API key manager
+api_key_manager = APIKeyManager()
+
+# Create FastAPI app
+app = FastAPI(
+    title="Ollama Text Generation API",
+    description="API for generating text using Ollama models with API key authentication",
+    version="0.1.0"
+)
+
+@app.post("/generate")
+def generate(
+    request: GenerateRequest, 
+    x_api_key: str = Depends(api_key_manager.verify_api_key)
+):
+    """
+    Generate text based on the provided prompt.
     
     Args:
-        request: Generation request containing prompt
-        api_key: Validated API key from header
+        request (GenerateRequest): The generation request containing prompt and model.
+        x_api_key (str): The API key for authentication.
     
     Returns:
-        Generated response with remaining credits
+        dict: Generated text response.
     """
-    with credits_manager.use_credit(api_key):
-        try:
-            response = ollama.chat(
-                model=config.model_name,
-                messages=[{"role": "user", "content": request.prompt}]
-            )
-            return GenerateResponse(
-                response=response["message"]["content"],
-                remaining_credits=credits_manager.credits[api_key]
-            )
-        except Exception as e:
-            raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail=f"Model service error: {str(e)}"
-            )
-
-@app.exception_handler(HTTPException)
-async def http_exception_handler(request, exc):
-    """Custom HTTP exception handler"""
-    return JSONResponse(
-        status_code=exc.status_code,
-        content={"detail": exc.detail}
-    )
+    try:
+        # Consume API key credit
+        api_key_manager.consume_credit(x_api_key)
+        
+        # Generate text using Ollama
+        response = ollama.chat(
+            model=request.model, 
+            messages=[{"role": "user", "content": request.prompt}]
+        )
+        
+        logger.info(f"Text generation successful for model: {request.model}")
+        return {"response": response["message"]["content"]}
+    
+    except Exception as e:
+        logger.error(f"Error during text generation: {str(e)}")
+        raise HTTPException(status_code=500, detail="Internal server error during text generation")
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
-from fastapi import FastAPI, Depends, HTTPException, Header
-import ollama
-import os
-from dotenv import load_dotenv
