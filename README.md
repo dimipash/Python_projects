@@ -24,9 +24,21 @@ This voice assistant project combines speech recognition, natural language proce
 
 A simple alarm clock application built with Python and Tkinter.
 
+### [API For LLM](https://github.com/dimipash/Python_projects/tree/main/api_for_llm)
+
+A Python project providing an API for Language Models.
+
+### [Automate Finances](https://github.com/dimipash/Python_projects/tree/main/automate_finances)
+
+A Python project for automating financial tasks.
+
 ### [Calculator](https://github.com/dimipash/Python_projects/tree/main/calculator)
 
 A sleek, modern calculator application built with Python and CustomTkinter.
+
+### [Claude PDF Summarizer](https://github.com/dimipash/Python_projects/tree/main/claude_pdf_summarizer)
+
+A Python project for summarizing PDF documents using Claude.
 
 ### [CLI To-Do App](https://github.com/dimipash/Python_projects/tree/main/cli_to_do_app)
 
@@ -68,13 +80,17 @@ Desktop Cleanup Script.
 
 A Python script that automates the process of logging into Facebook and posting status updates using Selenium WebDriver.
 
-### [Financial Analyzer](https://github.com/dimipash/Python_projects/tree/main/financial_analyzer)
+### [Fibonacci C++](https://github.com/dimipash/Python_projects/tree/main/fibonacci_c%2B%2B)
 
-A comprehensive financial analysis tool for evaluating investment opportunities, analyzing market trends, and generating financial reports.
+A Python project demonstrating C++ integration for Fibonacci calculation.
 
 ### [Finance Tracker](https://github.com/dimipash/Python_projects/tree/main/finance_tracker)
 
 A simple expense tracking app that calculates the total expenses for a given month based on a CSV file, and updates a JSON file with the monthly expense data.
+
+### [Financial Analyzer](https://github.com/dimipash/Python_projects/tree/main/financial_analyzer)
+
+A comprehensive financial analysis tool for evaluating investment opportunities, analyzing market trends, and generating financial reports.
 
 ### [Fitness Tracker](https://github.com/dimipash/Python_projects/tree/main/fitness_tracker)
 
@@ -143,6 +159,10 @@ A simple command-line dice game implementation.
 ### [Smart Expense Categorizer](https://github.com/dimipash/Python_projects/tree/main/smart_expense_categorizer)
 
 An intelligent expense analysis tool that automatically categorizes transactions using machine learning and generates visual spending reports.
+
+### [Smart Renamer](https://github.com/dimipash/Python_projects/tree/main/smart_renamer)
+
+A Python project for intelligently renaming files.
 
 ### [Snake Game](https://github.com/dimipash/Python_projects/tree/main/snake)
 
