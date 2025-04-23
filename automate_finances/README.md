@@ -6,6 +6,8 @@ A simple Streamlit application designed to help you categorize and visualize per
 
 This tool allows users to upload their bank statements in CSV format. It automatically categorizes expenses based on predefined keywords associated with categories and provides visualizations to understand spending patterns. Users can also manually categorize transactions and create new categories, with the application learning from these manual assignments for future automatic categorization.
 
+**[➡️ Try the live demo here!](https://finance-automator.streamlit.app/)**
+
 ## Features
 
 *   **CSV Upload:** Upload bank transaction data via a CSV file.
