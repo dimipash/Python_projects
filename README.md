@@ -5,217 +5,160 @@ This repository contains various Python projects, each in its own directory.
 ## Projects
 
 ### [AI Document Summary](https://github.com/dimipash/Python_projects/tree/main/ai_doc_summary)
-
-A document summarization tool using LangChain and Ollama for processing and analyzing text documents.
+Summarizes text documents using LangChain and local LLMs (Ollama).
 
 ### [AI Image Recognition](https://github.com/dimipash/Python_projects/tree/main/ai_image_recognition)
-
-An image recognition application using machine learning models to classify and identify objects in images.
+Classifies objects in images using machine learning models.
 
 ### [AI Task Breakdown](https://github.com/dimipash/Python_projects/tree/main/ai_task_breakdown)
-
-AI Task Breakdown helps users break down tasks into smaller, manageable milestones.
+Breaks down complex tasks into manageable sub-tasks using AI.
 
 ### [AI Voice Assistant](https://github.com/dimipash/Python_projects/tree/main/ai_voice_assistant)
-
-This voice assistant project combines speech recognition, natural language processing.
+Combines speech recognition and NLP for voice command interaction.
 
 ### [Alarm Clock](https://github.com/dimipash/Python_projects/tree/main/alarm_clock)
-
-A simple alarm clock application built with Python and Tkinter.
+Simple GUI alarm clock application built with Tkinter.
 
 ### [API For LLM](https://github.com/dimipash/Python_projects/tree/main/api_for_llm)
-
-A Python project providing an API for Language Models.
+Provides a basic API interface for interacting with Language Models.
 
 ### [Automate Finances](https://github.com/dimipash/Python_projects/tree/main/automate_finances)
-
-A Python project for automating financial tasks.
+Automates categorization of bank statement transactions.
 
 ### [Calculator](https://github.com/dimipash/Python_projects/tree/main/calculator)
-
-A sleek, modern calculator application built with Python and CustomTkinter.
+Modern GUI calculator built with Python and CustomTkinter.
 
 ### [Claude PDF Summarizer](https://github.com/dimipash/Python_projects/tree/main/claude_pdf_summarizer)
-
-A Python project for summarizing PDF documents using Claude.
+Summarizes PDF documents using the Anthropic Claude API.
 
 ### [CLI To-Do App](https://github.com/dimipash/Python_projects/tree/main/cli_to_do_app)
-
-A command-line to-do application using Typer.
+Command-line interface (CLI) task management application using Typer.
 
 ### [Compressing files](https://github.com/dimipash/Python_projects/tree/main/compressing_files)
-
-A simple GUI application for compressing and decompressing files using a custom compression algorithm.
+GUI tool for file compression/decompression using a custom algorithm.
 
 ### [Credit Card Validator](https://github.com/dimipash/Python_projects/tree/main/credit_card_validator)
-
-A simple credit card validation application.
+Validates credit card numbers using checksum algorithms.
 
 ### [CSV Processing](https://github.com/dimipash/Python_projects/tree/main/csv)
-
-A collection of tools for working with CSV files, including advanced parameter handling, pandas integration, and file operations.
+Tools for reading, writing, and manipulating CSV files, including Pandas integration.
 
 ### [Currency Converter](https://github.com/dimipash/Python_projects/tree/main/currency_converter)
-
-A Python-based currency converter that uses real-time exchange rates to convert between different currencies.
+Converts currencies using real-time exchange rates via an API.
 
 ### [CV Generator](https://github.com/dimipash/Python_projects/tree/main/cv_generator)
-
-A simple Python application that generates a professional CV in PDF format.
+Generates a professional CV/resume in PDF format from user input.
 
 ### [Database App](https://github.com/dimipash/Python_projects/tree/main/database_app)
-
-A simple PostgreSQL-based student database management system with a graphical user interface (GUI) built using Tkinter.
+Simple Tkinter GUI for managing a student database (PostgreSQL).
 
 ### [Deepseek Web Crawler](https://github.com/dimipash/Python_projects/tree/main/deepseek_web_crawler)
-
-A multi-threaded web crawler implemented in Python. It's designed to crawl websites, extract links, and store the crawled data efficiently.
+Multi-threaded web crawler for extracting links and data from websites.
 
 ### [Desktop Cleaner](https://github.com/dimipash/Python_projects/tree/main/desktop_cleaner)
+Organizes files on the desktop into categorized folders.
 
-Desktop Cleanup Script.
+### [Discord Bot](https://github.com/dimipash/Python_projects/tree/main/discord_bot)
+Automates tasks and interactions within a Discord server using discord.py.
 
 ### [Facebook Auto Poster](https://github.com/dimipash/Python_projects/tree/main/facebook_auto_poster)
-
-A Python script that automates the process of logging into Facebook and posting status updates using Selenium WebDriver.
+Automates posting status updates to Facebook using Selenium.
 
 ### [Fibonacci C++](https://github.com/dimipash/Python_projects/tree/main/fibonacci_c%2B%2B)
-
-A Python project demonstrating C++ integration for Fibonacci calculation.
+Demonstrates calling C++ code from Python for optimized Fibonacci calculation.
 
 ### [Finance Tracker](https://github.com/dimipash/Python_projects/tree/main/finance_tracker)
-
-A simple expense tracking app that calculates the total expenses for a given month based on a CSV file, and updates a JSON file with the monthly expense data.
+Tracks monthly expenses from a CSV file and stores summaries in JSON.
 
 ### [Financial Analyzer](https://github.com/dimipash/Python_projects/tree/main/financial_analyzer)
-
-A comprehensive financial analysis tool for evaluating investment opportunities, analyzing market trends, and generating financial reports.
+Tool for investment analysis, market trend evaluation, and report generation.
 
 ### [Fitness Tracker](https://github.com/dimipash/Python_projects/tree/main/fitness_tracker)
-
-A comprehensive fitness tracking application that helps users monitor their physical activity, log workouts, and track health metrics.
+Tracks physical activity, workouts, and health metrics.
 
 ### [Flask Chatbot](https://github.com/dimipash/Python_projects/tree/main/flask_chatbot)
-
-A web-based chatbot application built with Flask, featuring a modular architecture and comprehensive testing suite.
+Modular web-based chatbot application built with the Flask framework.
 
 ### [Groq Chatbot](https://github.com/dimipash/Python_projects/tree/main/groq_chatbot)
-
-A chatbot implementation using Groq's AI platform, featuring a web interface and custom styling.
+Web chatbot interface utilizing the Groq AI inference platform.
 
 ### [GUI Examples](https://github.com/dimipash/Python_projects/tree/main/gui)
-
-A collection of GUI examples demonstrating various Tkinter features including dropdown menus and status bars.
+Collection of Tkinter examples showcasing various GUI widgets and layouts.
 
 ### [Image to Sketch](https://github.com/dimipash/Python_projects/tree/main/image_to_sketch)
-
-A Python application that converts images into pencil sketch-like representations using computer vision techniques.
+Converts images into artistic pencil sketch representations using OpenCV.
 
 ### [Image Watermarker Tool](https://github.com/dimipash/Python_projects/tree/main/image_watermarker_tool)
-
-A tool for adding text watermarks to images in bulk, with customizable position and font settings.
+Adds customizable text watermarks to images in bulk using Pillow.
 
 ### [Instagram Analytics](https://github.com/dimipash/Python_projects/tree/main/instagram%20analytics)
-
-A tool for analyzing Instagram account metrics and generating insights from social media data.
+Analyzes Instagram account data to provide engagement insights.
 
 ### [Invoice Generator](https://github.com/dimipash/Python_projects/tree/main/invoice_generator)
-
-Invoice Generator: A simple GUI application for generating medicine invoices.
+Simple GUI application for creating and generating medicine invoices.
 
 ### [Langchain Transformers](https://github.com/dimipash/Python_projects/tree/main/langchain_transformers)
-
-A Python application for document summarization and question-answering using local Hugging Face models, with configurable model management and interactive Q&A mode.
+Document Q&A and summarization using local Hugging Face models via Langchain.
 
 ### [Local LLM Chatbot](https://github.com/dimipash/Python_projects/tree/main/local_llm)
-
-Local Language Model (LLM) Chatbot using a LLM via the Ollama library.
+Basic chatbot interacting with a local Language Model via Ollama.
 
 ### [MP3 Player](https://github.com/dimipash/Python_projects/tree/main/mp3_player)
-
-A simple music player application with a graphical user interface (GUI) built using Tkinter and Pygame.
+Simple GUI music player using Tkinter and Pygame for audio playback.
 
 ### [Password Hashing](https://github.com/dimipash/Python_projects/tree/main/password_hashing)
-
-Password Hashing and Validation GUI with Bcrypt.
+GUI tool for hashing and validating passwords using Bcrypt.
 
 ### [PDF Generator](https://github.com/dimipash/Python_projects/tree/main/pdf)
-
-PDF Generator with Links and HTML, Custom PDF Generator with Header and Footer, Advanced PDF Generator with Chapters, CSV to PDF Table Generator.
+Examples of creating various PDF documents (reports, tables from CSV) using libraries like FPDF.
 
 ### [QR Code Generator](https://github.com/dimipash/Python_projects/tree/main/qr_code_generator)
-
-QR Code Generator: A simple GUI application for generating QR codes from links.
+GUI application to generate QR codes from text or URLs.
 
 ### [Rock, Paper, Scissors Game](https://github.com/dimipash/Python_projects/tree/main/rock_paper_scissors)
-
-This is a simple command-line game of Rock, Paper, Scissors built with Python. It allows you to play the classic game against the computer.
+Classic Rock, Paper, Scissors game playable against the computer in the CLI.
 
 ### [Rolling Dice](https://github.com/dimipash/Python_projects/tree/main/rolling_dice)
-
-A simple command-line dice game implementation.
+Simple command-line dice rolling simulator.
 
 ### [Smart Expense Categorizer](https://github.com/dimipash/Python_projects/tree/main/smart_expense_categorizer)
-
-An intelligent expense analysis tool that automatically categorizes transactions using machine learning and generates visual spending reports.
+Categorizes financial transactions using machine learning and visualizes spending.
 
 ### [Smart Renamer](https://github.com/dimipash/Python_projects/tree/main/smart_renamer)
-
-A Python project for intelligently renaming files.
+Renames files based on defined rules or patterns.
 
 ### [Snake Game](https://github.com/dimipash/Python_projects/tree/main/snake)
-
-Snake Game: A classic arcade-style game implemented with Pygame.
+Classic Snake arcade game implemented using the Pygame library.
 
 ### [Streamlit Dashboard](https://github.com/dimipash/Python_projects/tree/main/web_app)
-
-This Streamlit app allows users to upload a CSV file, preview the data, generate a summary, filter the data, and plot a line chart.
-
-### [Student Database Management System](https://github.com/dimipash/Python_projects/tree/main/database_app)
-
-A simple PostgreSQL-based student database management system with a graphical user interface (GUI) built using Tkinter.
+Interactive web dashboard built with Streamlit for CSV data analysis and visualization.
 
 ### [Telegram Bot](https://github.com/dimipash/Python_projects/tree/main/telegram_bot)
-
-A simple Telegram bot that responds to user messages and commands.
+Simple bot framework for responding to messages and commands on Telegram.
 
 ### [Text Editor](https://github.com/dimipash/Python_projects/tree/main/text_editor)
-
-This is a simple text editor built with Python and the Tkinter library. It allows you to create, open, edit, and save text files.
+Basic GUI text editor with file operations built using Tkinter.
 
 ### [Text-to-Speech](https://github.com/dimipash/Python_projects/tree/main/text_to_speech)
-
-Text-to-Speech Converter: A simple GUI application that converts text to speech.
+GUI application converting text input into spoken audio using TTS libraries.
 
 ### [Tic-Tac-Toe](https://github.com/dimipash/Python_projects/tree/main/tic_tac_toe)
-
-A command-line implementation of the classic Tic-Tac-Toe game using random moves.
+Command-line Tic-Tac-Toe game against a computer opponent.
 
 ### [Voice Cloner](https://github.com/dimipash/Python_projects/tree/main/voice_clonner)
-
-A voice cloning application that uses machine learning to replicate and synthesize human voices.
+Clones voices using machine learning models for speech synthesis.
 
 ### [Voice Python Mentor](https://github.com/dimipash/Python_projects/tree/main/voice_python_mentor)
-
-An interactive voice-guided Python learning assistant that provides real-time coding feedback and explanations.
-
-### [Web Crawler](https://github.com/dimipash/Python_projects/tree/main/web_crawler)
-
-Multi-threaded web crawler implemented in Python. It's designed to crawl websites, extract links, and store the crawled data efficiently.
+Interactive voice assistant providing Python coding guidance and feedback.
 
 ### [Website Automator](https://github.com/dimipash/Python_projects/tree/main/website_automator)
-
-Opens a set of predefined webpages in the default web browser.
+Simple script to open a predefined list of websites in the browser.
 
 ### [Wi-Fi Security Analyzer](https://github.com/dimipash/Python_projects/tree/main/wi-fi_security)
-
-A network security tool for analyzing Wi-Fi configurations, detecting vulnerabilities, and suggesting security improvements.
+Analyzes Wi-Fi network configurations for potential vulnerabilities.
 
 ### [YouTube Audio Downloader](https://github.com/dimipash/Python_projects/tree/main/youtube_audio_downloader)
-
-This Python script allows users to download the audio from YouTube videos in various formats and qualities.
+Downloads audio tracks from YouTube videos using libraries like `pytube`.
 
 ### [YouTube Video Downloader](https://github.com/dimipash/Python_projects/tree/main/youtube_video_downloader)
-
-YouTube Video Downloader: A GUI application for downloading YouTube videos and extracting audio.
+GUI tool for downloading YouTube videos or extracting their audio.
