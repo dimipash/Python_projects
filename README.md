@@ -34,6 +34,9 @@ Summarizes PDF documents using the Anthropic Claude API.
 ### [CLI To-Do App](https://github.com/dimipash/Python_projects/tree/main/cli_to_do_app)
 Command-line interface (CLI) task management application using Typer.
 
+### [Code Reviewer](https://github.com/dimipash/Python_projects/tree/main/code_reviewer)
+Automated code review tool using AI models.
+
 ### [Compressing files](https://github.com/dimipash/Python_projects/tree/main/compressing_files)
 GUI tool for file compression/decompression using a custom algorithm.
 
