@@ -1,0 +1,16 @@
+order_id,customer_name,product,quantity,unit_price,order_date,region
+1001,Alice Johnson,Laptop,2,999.99,2024-01-15,North
+1002,Bob Smith,Mouse,5,29.99,2024-01-16,South
+1003,,Keyboard,1,79.99,2024-01-17,East
+1004,Carol White,Monitor,abc,349.99,2024-01-18,West
+1005,Dave Brown,Laptop,1,999.99,not-a-date,North
+1006,Eve Davis,Headset,3,149.99,2024-01-20,South
+1007,Frank Miller,Mouse,2,29.99,2024-01-21,
+1008,Grace Lee,Webcam,1,89.99,2024-01-22,East
+1009,Alice Johnson,Mouse,5,29.99,2024-01-16,South
+1002,Bob Smith,Mouse,5,29.99,2024-01-16,South
+1010,Hank Wilson,Keyboard,,79.99,2024-01-23,West
+1011,Ivy Moore,Laptop,1,999.99,2024-01-24,North
+1012,,Headset,,149.99,2024-01-25,South
+1013,Jack Taylor,Monitor,2,349.99,2024-01-26,East
+1014,Karen Anderson,Webcam,3,89.99,2024-01-27,West
