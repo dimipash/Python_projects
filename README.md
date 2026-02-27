@@ -64,6 +64,9 @@ Organizes files on the desktop into categorized folders.
 ### [Discord Bot](https://github.com/dimipash/Python_projects/tree/main/discord_bot)
 Automates tasks and interactions within a Discord server using discord.py.
 
+### [ETL Pipeline](https://github.com/dimipash/Python_projects/tree/main/etl_pipeline)
+A modular ETL pipeline that reads raw sales data from CSV, cleans it (removes duplicates, nulls, invalid values), and loads the result into PostgreSQL.
+
 ### [Facebook Auto Poster](https://github.com/dimipash/Python_projects/tree/main/facebook_auto_poster)
 Automates posting status updates to Facebook using Selenium.
 
