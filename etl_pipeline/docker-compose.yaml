@@ -1,0 +1,99 @@
+version: "3.8"
+
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.9.1
+  environment:
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-db/airflow
+    AIRFLOW__CORE__FERNET_KEY: ""
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+
+    DB_HOST: etl-postgres
+    DB_PORT: 5432
+    DB_NAME: etl_demo
+    DB_USER: postgres
+    DB_PASSWORD: password
+    CSV_PATH: /opt/airflow/data/sales_raw.csv
+    TABLE_NAME: sales_clean
+  volumes:
+    - ./dags:/opt/airflow/dags # Airflow scans here for DAG files
+    - ./data:/opt/airflow/data # pipeline reads CSV from here
+    - ./tmp:/opt/airflow/tmp # intermediate Parquet files between tasks
+    - ./logs:/opt/airflow/logs # task logs (viewable in the UI)
+    - .:/opt/airflow/project # project root so tasks can import our modules
+  depends_on:
+    airflow-db:
+      condition: service_healthy
+
+services:
+  etl-postgres:
+    image: postgres:15
+    container_name: etl_demo_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: etl_demo
+    ports:
+      - "5432:5432"
+    volumes:
+      - etl_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+
+  airflow-db:
+    image: postgres:15
+    container_name: airflow_metadata_db
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5433:5432"
+    volumes:
+      - airflow_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5
+
+  airflow-init:
+    <<: *airflow-common
+    container_name: airflow_init
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        airflow db migrate
+        airflow users create \
+          --username admin \
+          --password admin \
+          --firstname Admin \
+          --lastname User \
+          --role Admin \
+          --email admin@example.com
+    restart: "no"
+
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: airflow_scheduler
+    command: scheduler
+    restart: unless-stopped
+
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: airflow_webserver
+    command: webserver
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      retries: 5
+
+volumes:
+  etl_pgdata:
+  airflow_pgdata:
