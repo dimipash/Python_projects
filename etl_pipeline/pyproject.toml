@@ -1,0 +1,36 @@
+[tool.pytest.ini_options]
+# Where to find tests
+testpaths = ["tests"]
+
+# Show extra test summary: (f)ailed, (E)rror, (s)kipped, (p)assed
+addopts = "-v --tb=short"
+
+# Treat these markers as known (suppresses PytestUnknownMarkWarning)
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests that require external services",
+]
+
+
+[tool.coverage.run]
+# Which files to measure coverage for — exclude tests themselves,
+# config, and the DAG (which requires Airflow to import cleanly).
+source = ["extract", "transform", "load", "config", "pipeline"]
+omit = [
+    "tests/*",
+    "dags/*",
+    ".venv/*",
+]
+
+[tool.coverage.report]
+# Lines we intentionally don't test (e.g. __main__ guards, type: ignore)
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "\\.\\.\\.",
+]
+# Fail the coverage check if total drops below this threshold.
+# Start at 80 and raise it as you add more tests.
+fail_under = 80
+show_missing = true   # show which line numbers are uncovered in the report
