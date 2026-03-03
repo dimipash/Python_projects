@@ -4,12 +4,10 @@ import sys
 LOG_FORMAT = "%(asctime)s | %(levelname)-8s | %(name)-10s | %(message)s"
 DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
 
-
 _configured = False
 
 
 def get_logger(name: str, level: int = logging.INFO) -> logging.Logger:
-
     global _configured
 
     if not _configured:
