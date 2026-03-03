@@ -1,0 +1,8 @@
+order_id,customer_name,product,quantity,unit_price,order_date,region
+1015,Liam Scott,Laptop,1,999.99,2024-01-28,North
+1016,Mia Harris,Mouse,3,29.99,2024-01-28,East
+1017,Noah Clark,Headset,2,149.99,2024-01-29,South
+1018,,Webcam,1,89.99,2024-01-29,West
+1019,Olivia Lewis,Keyboard,abc,79.99,2024-01-30,North
+1020,Paul Walker,Monitor,2,349.99,2024-01-30,East
+1015,Liam Scott,Laptop,1,999.99,2024-01-28,North
