@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 VALID_LOAD_MODES = {"full", "incremental"}
+VALID_GE_ACTIONS = {"halt", "warn"}
 
 
 @dataclass
@@ -29,11 +30,18 @@ class Settings:
     load_mode: str = field(
         default_factory=lambda: _require_env("LOAD_MODE", default="incremental")
     )
+    ge_action: str = field(
+        default_factory=lambda: _require_env("GE_ACTION", default="halt")
+    )
 
     def __post_init__(self) -> None:
         if self.load_mode not in VALID_LOAD_MODES:
             raise ValueError(
                 f"Invalid LOAD_MODE '{self.load_mode}'. Must be one of: {sorted(VALID_LOAD_MODES)}"
+            )
+        if self.ge_action not in VALID_GE_ACTIONS:
+            raise ValueError(
+                f"Invalid GE_ACTION '{self.ge_action}'. Must be one of: {sorted(VALID_GE_ACTIONS)}"
             )
 
     @property
@@ -48,7 +56,8 @@ class Settings:
             f"Settings(db_host={self.db_host!r}, db_port={self.db_port}, "
             f"db_name={self.db_name!r}, db_user={self.db_user!r}, "
             f"db_password='***', csv_path={self.csv_path!r}, "
-            f"table_name={self.table_name!r}, load_mode={self.load_mode!r})"
+            f"table_name={self.table_name!r}, load_mode={self.load_mode!r}, "
+            f"ge_action={self.ge_action!r})"
         )
 
 

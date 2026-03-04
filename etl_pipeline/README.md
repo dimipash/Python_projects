@@ -1,27 +1,28 @@
 # ETL Pipeline: CSV → Postgres
 
-A Python ETL pipeline I built to practise structuring data engineering projects properly — modular, tested, scheduled, and now running incrementally so it only processes new data on each run.
+A Python ETL pipeline built to practise structuring data engineering projects properly — modular, tested, scheduled, incremental, and now with formal data quality checks at every stage.
 
 ---
 
 ## Why I built it this way
 
-My first version was a single `etl_pipeline.py` that rewrote the entire table on every run. I refactored it into separate modules, added Airflow scheduling, wrote a test suite for all the cleaning logic, and then implemented incremental loading — the pattern that makes pipelines viable at scale.
+My first version was a single `etl_pipeline.py` that rewrote the entire table on every run. I refactored it into separate modules, added Airflow scheduling, wrote a test suite for all the cleaning logic, implemented incremental loading, and then added Great Expectations — the step that turns ad-hoc cleaning code into a formal, auditable data contract.
 
 ```
-config.py    →  knows about configuration (including load mode)
-logger.py    →  knows about log formatting
-extract.py   →  knows how to read a CSV (and filter by watermark)
-transform.py →  knows how to clean data
-load.py      →  knows how to write to Postgres (full or incremental)
-pipeline.py  →  orchestrator — run_pipeline() or run_incremental_pipeline()
+config.py    →  configuration (load mode, GE action)
+logger.py    →  logging factory
+extract.py   →  read CSV, optional watermark filter
+transform.py →  7 cleaning steps
+validate.py  →  GE validation: raw suite + clean suite
+load.py      →  full load or incremental append + watermark
+pipeline.py  →  orchestrator
 dags/
   etl_dag.py →  Airflow DAG, 4 tasks, 06:00 UTC daily
 tests/
-  conftest.py        →  shared fixtures
-  test_extract.py    →  file/column validation tests
-  test_transform.py  →  35 tests across all 7 cleaning steps
-  test_incremental.py →  watermark logic + filtered extract tests
+  test_extract.py     →  13 tests
+  test_transform.py   →  35 tests
+  test_incremental.py →  17 tests
+  test_validate.py    →  25 tests
 ```
 
 ---
@@ -30,30 +31,33 @@ tests/
 
 ```
 etl-csv-to-postgres/
-├── .env                  # ⚠️  secrets — never committed
-├── .env.sample           # ✅  safe template — copy this to .env
+├── .env                  # secrets — never committed
+├── .env.sample           # safe template — copy to .env
 ├── .gitignore
 ├── LICENSE
-├── Makefile              # make test, make cov, make run, make up
+├── Makefile
 ├── README.md
-├── pyproject.toml        # pytest config + coverage thresholds
+├── pyproject.toml
 ├── requirements.txt
-├── docker-compose.yml    # etl-postgres + full Airflow stack
+├── docker-compose.yml
 │
-├── config.py             # Settings dataclass — now includes LOAD_MODE
-├── logger.py             # get_logger(__name__) factory
-├── extract.py            # Step 1: read CSV, optional watermark filter
-├── transform.py          # Step 2: clean data (7 private helpers)
-├── load.py               # Step 3: full load or incremental append
-├── pipeline.py           # run_pipeline() or run_incremental_pipeline()
+├── config.py             # Settings dataclass — LOAD_MODE + GE_ACTION
+├── logger.py
+├── extract.py
+├── transform.py
+├── validate.py           # Great Expectations: validate_raw() + validate_clean()
+├── load.py
+├── pipeline.py
 │
 ├── dags/
-│   └── etl_dag.py        # Airflow DAG, 4 tasks, 06:00 UTC daily
+│   └── etl_dag.py
 │
 ├── data/
-│   ├── sales_raw.csv     # Day 1: 15 messy rows, 9 survive transform
-│   └── sales_day2.csv    # Day 2: 7 new rows to demonstrate incremental load
+│   ├── sales_raw.csv     # day 1: 15 rows, 9 survive
+│   └── sales_day2.csv    # day 2: incremental demo
 │
+├── reports/              # GE JSON reports (gitignored, generated at runtime)
+│   └── .gitkeep
 ├── tmp/                  # Parquet files between Airflow tasks (gitignored)
 │   └── .gitkeep
 ├── logs/                 # Airflow task logs (gitignored)
@@ -64,52 +68,91 @@ etl-csv-to-postgres/
     ├── conftest.py
     ├── test_extract.py
     ├── test_transform.py
-    └── test_incremental.py  # watermark + filtered extract tests
+    ├── test_incremental.py
+    └── test_validate.py
+```
+
+---
+
+## How data quality validation works
+
+The pipeline validates data at two points using Great Expectations, with an ephemeral GE context — no `.gx/` directory, no GE Cloud, no migration scripts.
+
+```
+extract()
+    ↓
+validate_raw()     ← structural checks on source data
+    ↓
+transform()
+    ↓
+validate_clean()   ← contract checks on output data
+    ↓
+load()
+```
+
+**Raw suite** — catches source-level problems before transform wastes time on them:
+
+| Expectation | Reason |
+|---|---|
+| All 7 columns exist | schema change in the source CSV |
+| Row count > 0 | empty file delivered |
+| `order_id` not null | every row must be identifiable |
+
+**Clean suite** — verifies the output matches the contract before it reaches Postgres:
+
+| Expectation | Reason |
+|---|---|
+| No nulls in `customer_name`, `product`, `region`, `order_date`, `total_revenue`, `loaded_at` | critical fields must survive transform |
+| `region` in `{North, South, East, West}` | unknown regions corrupt GROUP BY reports |
+| `quantity` >= 1 | zero or negative quantity is a bad order |
+| `unit_price` > 0 | free items should be explicit, not silent |
+| `total_revenue` > 0 | derived column must be positive |
+| `order_id` unique | no duplicates allowed in the output |
+
+**Failure modes** — controlled by `GE_ACTION` in `.env`:
+
+- `halt` (default) — raises `DataQualityError`, stops the pipeline. Use in production.
+- `warn` — logs failures and continues. Use when first rolling out GE against unfamiliar data.
+
+After every run, a JSON report is written to `reports/{suite_name}.json`:
+
+```json
+{
+  "suite": "clean_suite",
+  "success": false,
+  "evaluated": 11,
+  "passed": 10,
+  "failed": 1,
+  "failures": [
+    {
+      "expectation": "ExpectColumnValuesToBeInSet",
+      "column": "region",
+      "details": "..."
+    }
+  ]
+}
 ```
 
 ---
 
 ## How incremental loading works
 
-The problem with `if_exists='replace'` is that it rewrites every row on every run. If the table has 10 million rows and 500 new ones arrived today, you're still processing and writing 10 million rows. That's slow, expensive, and pointless.
-
-Incremental loading fixes this with a **watermark**: after each run, we record the highest `order_date` seen in a dedicated `etl_watermarks` table. On the next run, we only extract rows newer than that date.
+After each run, we record the highest `order_date` in a `etl_watermarks` table. The next run only extracts rows newer than that date.
 
 ```
-etl_watermarks table:
-  pipeline_name | last_order_date          | updated_at
-  sales         | 2024-01-27 00:00:00+00   | 2024-01-28 06:01:43+00
-```
+Run 1 — full bootstrap:
+  get_watermark() → None
+  extract(all rows) → transform → load (replace) → save_watermark(2024-01-27)
 
-**Run 1 (no watermark — bootstraps automatically):**
+Run 2 — incremental:
+  get_watermark() → 2024-01-27
+  extract(since=2024-01-27) → validate_raw → transform → validate_clean
+  → load_incremental (ON CONFLICT DO NOTHING) → save_watermark(2024-01-30)
 ```
-get_watermark()     → None (first run)
-extract(since=None) → all 15 rows from sales_raw.csv
-transform()         → 9 clean rows
-load()              → full replace, adds UNIQUE constraint on order_id
-save_watermark()    → records 2024-01-27 (max order_date in the data)
-```
-
-**Run 2 (incremental):**
-```
-get_watermark()              → 2024-01-27
-extract(since=2024-01-27)    → only rows from sales_day2.csv after that date
-transform()                  → cleans the new rows
-load_incremental()           → stages rows, merges with ON CONFLICT DO NOTHING
-save_watermark()             → updates to 2024-01-30 (new max)
-```
-
-**Why `ON CONFLICT DO NOTHING`?**
-The watermark filter already prevents most duplicates. But if a row somehow slips through — network glitch, pipeline restart mid-run — the `UNIQUE` constraint on `order_id` means Postgres silently skips it instead of creating a duplicate.
-
-**Why `order_date` and not `loaded_at` as the watermark?**
-`loaded_at` is set by *us* during transform — it's always "now", which makes it useless for filtering source data. `order_date` is the actual business date of the record, which is stable and correct for determining what's new.
 
 ---
 
 ## How the transform step works
-
-Seven private helper functions chain together inside a single public `transform()`:
 
 ```python
 def transform(df):
@@ -118,12 +161,10 @@ def transform(df):
     df = _validate_numerics(df)
     df = _validate_dates(df)
     df = _standardize_text(df)
-    df = _derive_columns(df)       # → total_revenue = quantity × unit_price
-    df = _add_metadata(df)         # → loaded_at (UTC)
+    df = _derive_columns(df)       # total_revenue = quantity * unit_price
+    df = _add_metadata(df)         # loaded_at (UTC)
     return df
 ```
-
-Each helper logs how many rows it removed. When a run produces fewer rows than expected, I can trace exactly where data was lost.
 
 ---
 
@@ -133,25 +174,7 @@ Each helper logs how many rows it removed. When a run produces fewer rows than e
 [extract_task] → [transform_task] → [load_task] → [cleanup_task]
 ```
 
-Each task runs in its own process and passes output to the next via a Parquet file in `tmp/` — only the file path travels through XCom. In production I'd replace `tmp/` with S3. The DAG runs daily at 06:00 UTC; `catchup=False` prevents backfilling.
-
----
-
-## Data flow
-
-```
-data/sales_raw.csv   (15 rows — day 1)
-data/sales_day2.csv  (7 rows  — day 2, demonstrates incremental)
-
-Run 1 — full bootstrap:
-  extract (all)  →  transform (9 clean)  →  load (replace)  →  watermark = 2024-01-27
-
-Run 2 — incremental:
-  extract (filtered: order_date > 2024-01-27)
-  →  transform (new clean rows)
-  →  load_incremental (append + ON CONFLICT DO NOTHING)
-  →  watermark = 2024-01-30
-```
+Each task passes its output to the next as a Parquet file path via XCom. In production, `tmp/` would be replaced with S3. The DAG runs daily at 06:00 UTC; `catchup=False` prevents backfilling.
 
 ---
 
@@ -162,30 +185,32 @@ make test   # run all tests (no database required)
 make cov    # run with coverage report
 ```
 
-| File | What it covers |
-|------|----------------|
-| `test_transform.py` | 35 tests, one class per cleaning helper |
-| `test_extract.py` | file errors, column validation, raw data untouched |
-| `test_incremental.py` | watermark filter logic, extract with `since=`, mocked DB calls |
+| File | Tests | What it covers |
+|---|---|---|
+| `test_transform.py` | 35 | one class per cleaning helper |
+| `test_extract.py` | 13 | file errors, column validation, raw data untouched |
+| `test_incremental.py` | 17 | watermark filter, extract with `since=`, mocked DB |
+| `test_validate.py` | 25 | raw suite, clean suite, halt vs warn, each expectation |
 
-The watermark tests use `unittest.mock.MagicMock` to replace the SQLAlchemy engine — no real DB needed. The `_filter_since()` function is pure Python so it needs no mocking at all.
+`test_validate.py` uses `pytest.importorskip("great_expectations")` — if GE isn't installed the tests are skipped cleanly rather than erroring.
 
 ---
 
 ## Stack
 
 | Tool | Role |
-|------|------|
+|---|---|
 | **Python 3.11+** | pipeline language |
 | **pandas** | data transformation and cleaning |
+| **Great Expectations 1.x** | data quality validation, JSON reports |
 | **pyarrow** | Parquet read/write between Airflow tasks |
-| **SQLAlchemy** | database engine, connection pooling, upsert SQL |
+| **SQLAlchemy** | database engine, upsert SQL |
 | **psycopg2-binary** | PostgreSQL driver |
-| **python-dotenv** | loads `.env` into environment variables |
-| **Apache Airflow 2.9** | scheduling, orchestration, retries, web UI |
-| **PostgreSQL 15** | target DB + Airflow metadata DB (separate instances) |
-| **Docker Compose** | runs the full stack locally |
-| **pytest + pytest-cov** | test runner and coverage reporting |
+| **python-dotenv** | loads `.env` |
+| **Apache Airflow 2.9** | scheduling, orchestration, retries |
+| **PostgreSQL 15** | target DB + Airflow metadata DB |
+| **Docker Compose** | full local stack |
+| **pytest + pytest-cov** | test runner and coverage |
 
 ---
 
@@ -198,22 +223,17 @@ git clone https://github.com/dimipash/Python_projects/tree/main/etl_pipeline
 pip install -r requirements.txt
 cp .env.sample .env
 
-make test      # verify everything works before touching the DB
+make test
 
-make up        # start Postgres + Airflow
-make run       # run the pipeline (reads LOAD_MODE from .env)
-make check     # query Postgres to see the result
+make up
+make run
+make check
 ```
 
-**To demo incremental loading manually:**
+**To demo incremental loading:**
 ```bash
-# Run 1 — bootstraps the table from sales_raw.csv
 CSV_PATH=data/sales_raw.csv LOAD_MODE=full python pipeline.py
-
-# Run 2 — appends only new rows from sales_day2.csv
 CSV_PATH=data/sales_day2.csv LOAD_MODE=incremental python pipeline.py
-
-# Verify both runs landed in the table
 make check
 ```
 
@@ -223,9 +243,7 @@ make check
 
 ## What I'd add next
 
-**Great Expectations for data quality.** Instead of ad-hoc cleaning code, I'd define formal expectations (`quantity > 0`, `region` must be one of a fixed set) that generate HTML data quality reports and can halt the pipeline if the source data is too broken to trust.
-
-**Spark for scale.** pandas loads the entire file into memory on one machine, which breaks down past a few gigabytes. I'd migrate to PySpark to distribute the work across a cluster. `pd.read_csv()` becomes `spark.read.csv()`, `dropna()` becomes `df.na.drop()`. The main shift is learning Spark's lazy evaluation model.
+**Spark for scale.** pandas loads the entire file into memory on one machine. I'd migrate to PySpark — `pd.read_csv()` becomes `spark.read.csv()`, `dropna()` becomes `df.na.drop()`. The main shift is Spark's lazy evaluation model.
 
 ---
 

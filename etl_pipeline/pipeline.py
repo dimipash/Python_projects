@@ -13,6 +13,7 @@ from load import (
 )
 from logger import get_logger
 from transform import transform
+from validate import validate_clean, validate_raw
 
 log = get_logger(__name__)
 
@@ -30,7 +31,11 @@ def run_pipeline(settings: Settings) -> None:
 
     try:
         raw_df = extract(settings.csv_path)
+        validate_raw(raw_df, action=settings.ge_action)
+
         clean_df = transform(raw_df)
+        validate_clean(clean_df, action=settings.ge_action)
+
         engine = get_engine(settings.database_url)
         verify_connection(engine)
         load(clean_df, engine, settings.table_name)
@@ -79,6 +84,8 @@ def run_incremental_pipeline(settings: Settings) -> None:
             log.info(_SEP)
             return
 
+        validate_raw(raw_df, action=settings.ge_action)
+
         clean_df = transform(raw_df)
 
         if clean_df.empty:
@@ -87,6 +94,8 @@ def run_incremental_pipeline(settings: Settings) -> None:
             log.info("PIPELINE COMPLETE  [mode: incremental — all rows invalid]")
             log.info(_SEP)
             return
+
+        validate_clean(clean_df, action=settings.ge_action)
 
         load_incremental(clean_df, engine, settings.table_name)
         save_watermark(engine, clean_df[WATERMARK_COLUMN].max())
